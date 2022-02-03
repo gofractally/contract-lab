@@ -1,0 +1,322 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>System Contract - Contract Lab</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Installation</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../ubuntu.html"><strong aria-hidden="true">2.1.</strong> Ubuntu Installation</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Contracts</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../contract/basic/index.html"><strong aria-hidden="true">3.1.</strong> Basic Contract</a></li><li class="chapter-item expanded "><a href="../../contract/table/index.html"><strong aria-hidden="true">3.2.</strong> Tables</a></li><li class="chapter-item expanded "><a href="../../contract/notify/index.html"><strong aria-hidden="true">3.3.</strong> Notifications</a></li><li class="chapter-item expanded "><a href="../../contract/debug/index.html"><strong aria-hidden="true">3.4.</strong> Debugging</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../contract/debug/vscode.html"><strong aria-hidden="true">3.4.1.</strong> With vscode</a></li><li class="chapter-item expanded "><a href="../../contract/debug/gdb.html"><strong aria-hidden="true">3.4.2.</strong> With gdb</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> cltester</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../cltester/starting/index.html"><strong aria-hidden="true">4.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../cltester/starting/vscode.html"><strong aria-hidden="true">4.1.1.</strong> Debugging with vscode</a></li><li class="chapter-item expanded "><a href="../../cltester/starting/gdb.html"><strong aria-hidden="true">4.1.2.</strong> Debugging with gdb</a></li></ol></li><li class="chapter-item expanded "><a href="../../cltester/token/index.html"><strong aria-hidden="true">4.2.</strong> Token Support</a></li><li class="chapter-item expanded "><a href="../../cltester/tables/index.html"><strong aria-hidden="true">4.3.</strong> Reading Tables</a></li><li class="chapter-item expanded "><a href="../../cltester/as/index.html"><strong aria-hidden="true">4.4.</strong> as/act/trace</a></li><li class="chapter-item expanded "><a href="../../cltester/bios/index.html"><strong aria-hidden="true">4.5.</strong> BIOS and Chain Configuration</a></li><li class="chapter-item expanded "><a href="../../cltester/block/index.html"><strong aria-hidden="true">4.6.</strong> Block Control</a></li><li class="chapter-item expanded "><a href="../../cltester/nodeos/index.html"><strong aria-hidden="true">4.7.</strong> Starting Nodeos</a></li><li class="chapter-item expanded "><a href="../../cltester/system/index.html" class="active"><strong aria-hidden="true">4.8.</strong> System Contract</a></li><li class="chapter-item expanded "><a href="../../cltester/takeover/index.html"><strong aria-hidden="true">4.9.</strong> Hostile Takeover</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Contract Lab</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="system-contract"><a class="header" href="#system-contract">System Contract</a></h1>
+<p>This example shows how to load and activate the <code>eosio.system</code> contract on a test chain. This is a simplified setup which isn't suitable for public chains. All accounts use the default public key. This doesn't activate optional features (REX, powerup, etc.). It spawns nodeos on the activated chain with 21 producers.</p>
+<pre><code class="language-c++">#include &lt;eosio/tester.hpp&gt;
+
+#include &lt;bios/bios.hpp&gt;
+#include &lt;token/token.hpp&gt;
+
+#define CATCH_CONFIG_MAIN
+#include &lt;catch2/catch.hpp&gt;
+
+using namespace eosio;
+
+// Where eosio.system.wasm and eosio.system.abi live
+const std::string system_path = &quot;/path/to/built/eosio.system&quot;;
+
+const std::vector system_accounts = {
+    &quot;eosio.bpay&quot;_n, &quot;eosio.names&quot;_n,  &quot;eosio.ram&quot;_n,   &quot;eosio.ramfee&quot;_n,
+    &quot;eosio.rex&quot;_n,  &quot;eosio.saving&quot;_n, &quot;eosio.stake&quot;_n, &quot;eosio.vpay&quot;_n,
+};
+
+const std::vector producers = {
+    &quot;bpaaaaaaaaaa&quot;_n, &quot;bpbbbbbbbbbb&quot;_n, &quot;bpcccccccccc&quot;_n, &quot;bpdddddddddd&quot;_n, &quot;bpeeeeeeeeee&quot;_n,
+    &quot;bpffffffffff&quot;_n, &quot;bpgggggggggg&quot;_n, &quot;bphhhhhhhhhh&quot;_n, &quot;bpiiiiiiiiii&quot;_n, &quot;bpjjjjjjjjjj&quot;_n,
+    &quot;bpkkkkkkkkkk&quot;_n, &quot;bpllllllllll&quot;_n, &quot;bpmmmmmmmmmm&quot;_n, &quot;bpnnnnnnnnnn&quot;_n, &quot;bpoooooooooo&quot;_n,
+    &quot;bppppppppppp&quot;_n, &quot;bpqqqqqqqqqq&quot;_n, &quot;bprrrrrrrrrr&quot;_n, &quot;bpssssssssss&quot;_n, &quot;bptttttttttt&quot;_n,
+    &quot;bpuuuuuuuuuu&quot;_n,
+};
+
+TEST_CASE(&quot;Activate eosio.system&quot;)
+{
+   test_chain chain;
+
+   // Create accounts
+   for (auto account : system_accounts)
+      chain.create_account(account);
+   for (auto account : producers)
+      chain.create_account(account);
+   chain.create_account(&quot;whale&quot;_n);
+
+   // Load bios and activate features
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios.wasm&quot;);
+   bios::activate(chain, {
+      // Features available in 2.0
+      feature::only_link_to_existing_permission,
+      feature::forward_setcode,
+      feature::wtmsig_block_signatures,
+      feature::replace_deferred,
+      feature::no_duplicate_deferred_id,
+      feature::ram_restrictions,
+      feature::webauthn_key,
+      feature::disallow_empty_producer_schedule,
+      feature::only_bill_first_authorizer,
+      feature::restrict_action_to_self,
+      feature::fix_linkauth_restriction,
+      feature::get_sender,
+
+      // Features added in 3.0
+      feature::blockchain_parameters,
+      feature::action_return_value,
+      feature::get_code_hash,
+      feature::configurable_wasm_limits2,
+   });
+
+   // Create token
+   chain.create_code_account(&quot;eosio.token&quot;_n);
+   chain.set_code(&quot;eosio.token&quot;_n, CLSDK_CONTRACTS_DIR &quot;token.wasm&quot;);
+   chain.set_abi(&quot;eosio.token&quot;_n, CLSDK_CONTRACTS_DIR &quot;token.abi&quot;);
+   chain.as(&quot;eosio.token&quot;_n).act&lt;token::actions::create&gt;(&quot;eosio&quot;_n, s2a(&quot;1000000000.0000 EOS&quot;));
+   chain.as(&quot;eosio&quot;_n).act&lt;token::actions::issue&gt;(&quot;eosio&quot;_n, s2a(&quot;1000000000.0000 EOS&quot;), &quot;&quot;);
+
+   // Load and initialize system contract
+   chain.set_code(&quot;eosio&quot;_n, system_path + &quot;/eosio.system.wasm&quot;);
+   chain.set_abi(&quot;eosio&quot;_n, system_path + &quot;/eosio.system.abi&quot;);
+   chain.transact({action{{{&quot;eosio&quot;_n, &quot;active&quot;_n}},
+                          &quot;eosio&quot;_n,
+                          &quot;init&quot;_n,
+                          std::tuple{varuint32(0), symbol(&quot;EOS&quot;, 4)}}});
+
+   // Register producers
+   for (auto prod : producers)
+   {
+      chain.transact({action{{{prod, &quot;active&quot;_n}},
+                             &quot;eosio&quot;_n,
+                             &quot;regproducer&quot;_n,
+                             std::tuple{prod, chain.default_pub_key, std::string{}, 0}}});
+   }
+
+   // Whale activates system contract by voting
+   chain.as(&quot;eosio&quot;_n).act&lt;token::actions::transfer&gt;(&quot;eosio&quot;_n, &quot;whale&quot;_n,
+                                                     s2a(&quot;500000000.0000 EOS&quot;), &quot;&quot;);
+   chain.transact({action{{{&quot;whale&quot;_n, &quot;active&quot;_n}},
+                          &quot;eosio&quot;_n,
+                          &quot;buyrambytes&quot;_n,
+                          std::tuple{&quot;whale&quot;_n, &quot;whale&quot;_n, 10000}}});
+   chain.transact({action{{{&quot;whale&quot;_n, &quot;active&quot;_n}},
+                          &quot;eosio&quot;_n,
+                          &quot;delegatebw&quot;_n,
+                          std::tuple{&quot;whale&quot;_n, &quot;whale&quot;_n, s2a(&quot;75000000.0000 EOS&quot;),
+                                     s2a(&quot;75000000.0000 EOS&quot;), false}}});
+   chain.transact({action{{{&quot;whale&quot;_n, &quot;active&quot;_n}},
+                          &quot;eosio&quot;_n,
+                          &quot;voteproducer&quot;_n,
+                          std::tuple{&quot;whale&quot;_n, &quot;&quot;_n, producers}}});
+
+   // Run nodeos
+   chain.finish_block();
+   chain.finish_block();
+   eosio::execute(&quot;rm -rf example_chain&quot;);
+   eosio::execute(&quot;mkdir -p example_chain/blocks&quot;);
+   eosio::execute(&quot;cp &quot; + chain.get_path() + &quot;/blocks/blocks.log example_chain/blocks&quot;);
+   eosio::execute(
+       &quot;nodeos -d example_chain &quot;
+       &quot;--config-dir example_config &quot;
+       &quot;--plugin eosio::chain_api_plugin &quot;
+       &quot;--access-control-allow-origin \&quot;*\&quot; &quot;
+       &quot;--access-control-allow-header \&quot;*\&quot; &quot;
+       &quot;--http-validate-host 0 &quot;
+       &quot;--http-server-address 0.0.0.0:8888 &quot;
+       &quot;--contracts-console &quot;
+       &quot;-e -p eosio &quot;
+       &quot;-p bpaaaaaaaaaa -p bpbbbbbbbbbb -p bpcccccccccc -p bpdddddddddd -p bpeeeeeeeeee &quot;
+       &quot;-p bpffffffffff -p bpgggggggggg -p bphhhhhhhhhh -p bpiiiiiiiiii -p bpjjjjjjjjjj &quot;
+       &quot;-p bpkkkkkkkkkk -p bpllllllllll -p bpmmmmmmmmmm -p bpnnnnnnnnnn -p bpoooooooooo &quot;
+       &quot;-p bppppppppppp -p bpqqqqqqqqqq -p bprrrrrrrrrr -p bpssssssssss -p bptttttttttt &quot;
+       &quot;-p bpuuuuuuuuuu&quot;);
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../cltester/nodeos/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../cltester/takeover/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../cltester/nodeos/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../cltester/takeover/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

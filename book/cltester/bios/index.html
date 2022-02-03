@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>BIOS and Chain Configuration - Contract Lab</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Installation</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../ubuntu.html"><strong aria-hidden="true">2.1.</strong> Ubuntu Installation</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Contracts</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../contract/basic/index.html"><strong aria-hidden="true">3.1.</strong> Basic Contract</a></li><li class="chapter-item expanded "><a href="../../contract/table/index.html"><strong aria-hidden="true">3.2.</strong> Tables</a></li><li class="chapter-item expanded "><a href="../../contract/notify/index.html"><strong aria-hidden="true">3.3.</strong> Notifications</a></li><li class="chapter-item expanded "><a href="../../contract/debug/index.html"><strong aria-hidden="true">3.4.</strong> Debugging</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../contract/debug/vscode.html"><strong aria-hidden="true">3.4.1.</strong> With vscode</a></li><li class="chapter-item expanded "><a href="../../contract/debug/gdb.html"><strong aria-hidden="true">3.4.2.</strong> With gdb</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> cltester</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../cltester/starting/index.html"><strong aria-hidden="true">4.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../cltester/starting/vscode.html"><strong aria-hidden="true">4.1.1.</strong> Debugging with vscode</a></li><li class="chapter-item expanded "><a href="../../cltester/starting/gdb.html"><strong aria-hidden="true">4.1.2.</strong> Debugging with gdb</a></li></ol></li><li class="chapter-item expanded "><a href="../../cltester/token/index.html"><strong aria-hidden="true">4.2.</strong> Token Support</a></li><li class="chapter-item expanded "><a href="../../cltester/tables/index.html"><strong aria-hidden="true">4.3.</strong> Reading Tables</a></li><li class="chapter-item expanded "><a href="../../cltester/as/index.html"><strong aria-hidden="true">4.4.</strong> as/act/trace</a></li><li class="chapter-item expanded "><a href="../../cltester/bios/index.html" class="active"><strong aria-hidden="true">4.5.</strong> BIOS and Chain Configuration</a></li><li class="chapter-item expanded "><a href="../../cltester/block/index.html"><strong aria-hidden="true">4.6.</strong> Block Control</a></li><li class="chapter-item expanded "><a href="../../cltester/nodeos/index.html"><strong aria-hidden="true">4.7.</strong> Starting Nodeos</a></li><li class="chapter-item expanded "><a href="../../cltester/system/index.html"><strong aria-hidden="true">4.8.</strong> System Contract</a></li><li class="chapter-item expanded "><a href="../../cltester/takeover/index.html"><strong aria-hidden="true">4.9.</strong> Hostile Takeover</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Contract Lab</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="cltester-bios-and-chain-configuration"><a class="header" href="#cltester-bios-and-chain-configuration">cltester: BIOS and Chain Configuration</a></h1>
+<p>cltester comes with multiple bios contracts which support different sets of protocol features.</p>
+<table><thead><tr><th>Name</th><th>Required Features</th><th>Additional Actions</th></tr></thead><tbody>
+<tr><td><code>bios</code></td><td><code>PREACTIVATE_FEATURE</code></td><td></td></tr>
+<tr><td><code>bios2</code></td><td><code>PREACTIVATE_FEATURE</code>, <code>WTMSIG_BLOCK_SIGNATURES</code></td><td><code>setprods</code></td></tr>
+<tr><td><code>bios3</code></td><td><code>PREACTIVATE_FEATURE</code>, <code>WTMSIG_BLOCK_SIGNATURES</code>, <code>BLOCKCHAIN_PARAMETERS</code>, <code>ACTION_RETURN_VALUE</code>, <code>CONFIGURABLE_WASM_LIMITS2</code></td><td><code>setprods</code>, <code>wasmcfg</code>, enhanced <code>setparams</code></td></tr>
+</tbody></table>
+<p>cltester always activates <code>PREACTIVATE_FEATURE</code>; <code>bios</code> can be installed as soon as the chain is created. The other bioses need additional protocol features activated before they can be installed. The <code>activate</code> action in <code>bios</code> can activate these features. A helper method helps activate these in bulk.</p>
+<h2 id="activating-protocol-features"><a class="header" href="#activating-protocol-features">Activating Protocol Features</a></h2>
+<p>bios contract headers include a helper function (<code>activate</code>) which activates multiple protocol features.</p>
+<pre><code class="language-c++">#include &lt;bios/bios.hpp&gt;
+
+TEST_CASE(&quot;activate&quot;)
+{
+   test_chain chain;
+
+   // Load bios
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios.wasm&quot;);
+
+   bios::activate(chain, {
+      // Features available in 2.0
+      eosio::feature::only_link_to_existing_permission,
+      eosio::feature::forward_setcode,
+      eosio::feature::wtmsig_block_signatures,
+      eosio::feature::replace_deferred,
+      eosio::feature::no_duplicate_deferred_id,
+      eosio::feature::ram_restrictions,
+      eosio::feature::webauthn_key,
+      eosio::feature::disallow_empty_producer_schedule,
+      eosio::feature::only_bill_first_authorizer,
+      eosio::feature::restrict_action_to_self,
+      eosio::feature::fix_linkauth_restriction,
+      eosio::feature::get_sender,
+
+      // Features added in 3.0
+      eosio::feature::blockchain_parameters,
+      eosio::feature::action_return_value,
+      eosio::feature::get_code_hash,
+      eosio::feature::configurable_wasm_limits2,
+   });
+
+   // Load bios3
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios3.wasm&quot;);
+
+   // Use the chain...
+}
+</code></pre>
+<h2 id="setting-consensus-parameters-bios-bios2"><a class="header" href="#setting-consensus-parameters-bios-bios2">Setting Consensus Parameters (bios, bios2)</a></h2>
+<p>The <code>setparams</code> action sets consensus parameters which are available in nodeos 2.0 and earlier.</p>
+<pre><code class="language-c++">#include &lt;bios/bios.hpp&gt;
+
+TEST_CASE(&quot;setparams&quot;)
+{
+   test_chain chain;
+
+   // Load bios
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios.wasm&quot;);
+
+   // Allow deeper inline actions. Sets all other parameters to the default.
+   chain.as(&quot;eosio&quot;_n).act&lt;bios::actions::setparams&gt;(
+      blockchain_parameters{
+         .max_inline_action_depth = 10});
+
+   // Use the chain...
+}
+</code></pre>
+<p><code>eosio::blockchain_parameters</code> has the following definition:</p>
+<pre><code class="language-c++">struct blockchain_parameters
+{
+   constexpr static int percent_1 = 100;  // 1 percent
+
+   uint64_t max_block_net_usage = 1024 * 1024;
+   uint32_t target_block_net_usage_pct = 10 * percent_1;
+   uint32_t max_transaction_net_usage = max_block_net_usage / 2;
+   uint32_t base_per_transaction_net_usage = 12;
+   uint32_t net_usage_leeway = 500;
+   uint32_t context_free_discount_net_usage_num = 20;
+   uint32_t context_free_discount_net_usage_den = 100;
+   uint32_t max_block_cpu_usage = 200'000;
+   uint32_t target_block_cpu_usage_pct = 10 * percent_1;
+   uint32_t max_transaction_cpu_usage = 3 * max_block_cpu_usage / 4;
+   uint32_t min_transaction_cpu_usage = 100;
+   uint32_t max_transaction_lifetime = 60 * 60;
+   uint32_t deferred_trx_expiration_window = 10 * 60;
+   uint32_t max_transaction_delay = 45 * 24 * 3600;
+   uint32_t max_inline_action_size = 512 * 1024;
+   uint16_t max_inline_action_depth = 4;
+   uint16_t max_authority_depth = 6;
+};
+</code></pre>
+<h2 id="setting-consensus-parameters-bios3"><a class="header" href="#setting-consensus-parameters-bios3">Setting Consensus Parameters (bios3)</a></h2>
+<p>The <code>setparams</code> action in <code>bios3</code> adds an additional field: <code>max_action_return_value_size</code>.</p>
+<pre><code class="language-c++">#include &lt;bios/bios.hpp&gt;
+#include &lt;bios3/bios3.hpp&gt;
+
+TEST_CASE(&quot;setparams_bios3&quot;)
+{
+   test_chain chain;
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios.wasm&quot;);
+   bios::activate(chain, {
+      eosio::feature::wtmsig_block_signatures,
+      eosio::feature::blockchain_parameters,
+      eosio::feature::action_return_value,
+      eosio::feature::configurable_wasm_limits2,
+   });
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios3.wasm&quot;);
+
+   // Allow larger return sizes. Sets all other parameters to the default.
+   chain.as(&quot;eosio&quot;_n).act&lt;bios3::actions::setparams&gt;(
+      bios3::blockchain_parameters_v1{
+         .max_action_return_value_size = 1024});
+
+   // Use the chain...
+}
+</code></pre>
+<h2 id="expanding-wasm-limits-bios3"><a class="header" href="#expanding-wasm-limits-bios3">Expanding WASM limits (bios3)</a></h2>
+<p>The <code>wasmcfg</code> action in <code>bios3</code> expands the WASM limits.</p>
+<pre><code class="language-c++">#include &lt;bios/bios.hpp&gt;
+#include &lt;bios3/bios3.hpp&gt;
+
+TEST_CASE(&quot;wasmcfg&quot;)
+{
+   test_chain chain;
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios.wasm&quot;);
+   bios::activate(chain, {
+      eosio::feature::wtmsig_block_signatures,
+      eosio::feature::blockchain_parameters,
+      eosio::feature::action_return_value,
+      eosio::feature::configurable_wasm_limits2,
+   });
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios3.wasm&quot;);
+
+   // low, default (same as low), or high
+   chain.as(&quot;eosio&quot;_n).act&lt;bios3::actions::wasmcfg&gt;(&quot;high&quot;_n);
+
+   // Use the chain...
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../cltester/as/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../cltester/block/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../cltester/as/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../cltester/block/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

@@ -1,0 +1,1807 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Contract Lab</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Installation</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="ubuntu.html"><strong aria-hidden="true">2.1.</strong> Ubuntu Installation</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Contracts</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="contract/basic/index.html"><strong aria-hidden="true">3.1.</strong> Basic Contract</a></li><li class="chapter-item expanded "><a href="contract/table/index.html"><strong aria-hidden="true">3.2.</strong> Tables</a></li><li class="chapter-item expanded "><a href="contract/notify/index.html"><strong aria-hidden="true">3.3.</strong> Notifications</a></li><li class="chapter-item expanded "><a href="contract/debug/index.html"><strong aria-hidden="true">3.4.</strong> Debugging</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="contract/debug/vscode.html"><strong aria-hidden="true">3.4.1.</strong> With vscode</a></li><li class="chapter-item expanded "><a href="contract/debug/gdb.html"><strong aria-hidden="true">3.4.2.</strong> With gdb</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> cltester</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="cltester/starting/index.html"><strong aria-hidden="true">4.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="cltester/starting/vscode.html"><strong aria-hidden="true">4.1.1.</strong> Debugging with vscode</a></li><li class="chapter-item expanded "><a href="cltester/starting/gdb.html"><strong aria-hidden="true">4.1.2.</strong> Debugging with gdb</a></li></ol></li><li class="chapter-item expanded "><a href="cltester/token/index.html"><strong aria-hidden="true">4.2.</strong> Token Support</a></li><li class="chapter-item expanded "><a href="cltester/tables/index.html"><strong aria-hidden="true">4.3.</strong> Reading Tables</a></li><li class="chapter-item expanded "><a href="cltester/as/index.html"><strong aria-hidden="true">4.4.</strong> as/act/trace</a></li><li class="chapter-item expanded "><a href="cltester/bios/index.html"><strong aria-hidden="true">4.5.</strong> BIOS and Chain Configuration</a></li><li class="chapter-item expanded "><a href="cltester/block/index.html"><strong aria-hidden="true">4.6.</strong> Block Control</a></li><li class="chapter-item expanded "><a href="cltester/nodeos/index.html"><strong aria-hidden="true">4.7.</strong> Starting Nodeos</a></li><li class="chapter-item expanded "><a href="cltester/system/index.html"><strong aria-hidden="true">4.8.</strong> System Contract</a></li><li class="chapter-item expanded "><a href="cltester/takeover/index.html"><strong aria-hidden="true">4.9.</strong> Hostile Takeover</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Contract Lab</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>Contract Lab (clsdk) is a set of tools and libraries for building, testing, and debugging smart contracts for Mandel. It has the following capabilities:</p>
+<ul>
+<li>Compile contracts for Mandel 3.0, eosio 2.0, and earlier</li>
+<li>Debug contracts using the <code>debug_plugin</code>, which comes built in to Contract Lab's <code>nodeos</code> executable</li>
+<li>Create deterministic tests using <code>cltester</code>, which comes with Contract Lab</li>
+<li>Debug contracts and tests using <code>cltester</code></li>
+<li>Bootstrap test chains using <code>cltester</code> and spawn a <code>nodeos</code> producer on them</li>
+<li>Fork public chains into test chains</li>
+</ul>
+<h1 id="navigating-this-documentation"><a class="header" href="#navigating-this-documentation">Navigating this Documentation</a></h1>
+<p>If the Table of Contents is not currently visible, then click the hamburger menu.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ubuntu-2004-installation"><a class="header" href="#ubuntu-2004-installation">Ubuntu 20.04 Installation</a></h1>
+<p>This installs several dependencies then downloads and extracts both wasi-sdk and Contract Lab. wasi-sdk provides clang and other tools and provides the C and C++ runtime libraries built for WASM. Contract Lab provides libraries and tools for working with eosio.</p>
+<p>For convenience, consider adding the environment variables below to <code>~/.bashrc</code> or whatever is appropriate for the shell you use.</p>
+<pre><code class="language-sh">sudo apt-get update
+sudo apt-get install -yq    \
+    binaryen                \
+    build-essential         \
+    cmake                   \
+    gdb                     \
+    git                     \
+    libboost-all-dev        \
+    libcurl4-openssl-dev    \
+    libgmp-dev              \
+    libssl-dev              \
+    libusb-1.0-0-dev        \
+    pkg-config              \
+    wget
+
+export WASI_SDK_PREFIX=~/work/wasi-sdk-12.0
+export CLSDK_PREFIX=~/work/clsdk
+
+export PATH=$CLSDK_PREFIX/bin:$PATH
+
+cd ~/work
+wget https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-12/wasi-sdk-12.0-linux.tar.gz
+tar xf wasi-sdk-12.0-linux.tar.gz
+
+cd ~/work
+wget https://github.com/gofractally/contract-lab/releases/download/v1.0.0-rc1/clsdk-ubuntu-20-04.tar.gz
+tar xf clsdk-ubuntu-20-04.tar.gz
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="basic-contract"><a class="header" href="#basic-contract">Basic Contract</a></h1>
+<p>Here is a basic contract definition. Place <code>example.cpp</code> and <code>CMakeLists.txt</code> in an empty folder.</p>
+<h2 id="examplecpp"><a class="header" href="#examplecpp"><code>example.cpp</code></a></h2>
+<pre><code class="language-cpp">#include &lt;eosio/asset.hpp&gt;
+#include &lt;eosio/eosio.hpp&gt;
+
+// The contract class must be in a namespace
+namespace example
+{
+   // The contract
+   struct example_contract : public eosio::contract
+   {
+      // Use the base class constructors
+      using eosio::contract::contract;
+
+      // Action: user buys a dog
+      void buydog(eosio::name user, eosio::name dog, const eosio::asset&amp; price)
+      {
+         // TODO: buy a dog
+      }
+   };
+
+   // First part of the dispatcher
+   EOSIO_ACTIONS(example_contract,  //
+                 &quot;example&quot;_n,       //
+                 action(buydog, user, dog, price))
+}  // namespace example
+
+// Final part of the dispatcher
+EOSIO_ACTION_DISPATCHER(example::actions)
+
+// ABI generation
+EOSIO_ABIGEN(actions(example::actions))
+</code></pre>
+<h2 id="cmakeliststxt"><a class="header" href="#cmakeliststxt"><code>CMakeLists.txt</code></a></h2>
+<pre><code># All cmake projects need these
+cmake_minimum_required(VERSION 3.16)
+project(example)
+
+# clsdk requires C++20
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Libraries for building contracts and tests
+find_package(clsdk REQUIRED)
+
+# Build example.wasm contract
+add_executable(example example.cpp)
+target_link_libraries(example eosio-contract-simple-malloc)
+
+# Generate example.abi
+# This is a 2-step process:
+#   * Build example.abi.wasm. This must link to eosio-contract-abigen.
+#   * Run the wasm to generate the abi
+add_executable(example-abigen example.cpp)
+target_link_libraries(example-abigen eosio-contract-abigen)
+add_custom_command(TARGET example-abigen POST_BUILD
+    COMMAND cltester example-abigen.wasm &gt;example.abi
+)
+
+# These symlinks help vscode
+execute_process(COMMAND ln -sf ${clsdk_DIR} ${CMAKE_CURRENT_BINARY_DIR}/clsdk)
+execute_process(COMMAND ln -sf ${WASI_SDK_PREFIX} ${CMAKE_CURRENT_BINARY_DIR}/wasi-sdk)
+
+# Generate compile_commands.json to aid vscode and other editors
+set(CMAKE_EXPORT_COMPILE_COMMANDS on)
+</code></pre>
+<h2 id="building"><a class="header" href="#building">Building</a></h2>
+<p>This will create <code>example.wasm</code> and <code>example.abi</code>:</p>
+<pre><code class="language-sh">mkdir build
+cd build
+cmake `clsdk-cmake-args` ..
+make -j $(nproc)
+</code></pre>
+<h2 id="trying-the-contract"><a class="header" href="#trying-the-contract">Trying the contract</a></h2>
+<p>clsdk comes with nodeos, cleos, and keosd. The following will execute the contract:</p>
+<pre><code># Start keosd on an empty directory
+killall keosd
+rm -rf testing-wallet testing-wallet-password
+mkdir testing-wallet
+keosd --wallet-dir `pwd`/testing-wallet --unlock-timeout 99999999 &gt;keosd.log 2&gt;&amp;1 &amp;
+
+# Create a default wallet. This saves the password in testing-wallet-password
+cleos wallet create -f testing-wallet-password
+
+# Add the default development key
+cleos wallet import --private-key 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+
+# Start up a fresh chain
+killall nodeos
+rm -rf data config
+nodeos -d data --config-dir config --plugin eosio::chain_api_plugin --plugin eosio::producer_api_plugin -e -p eosio &gt;nodeos.log 2&gt;&amp;1 &amp;
+
+# Install the contract
+cleos create account eosio example EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos set abi example example.abi
+cleos set code example example.wasm
+
+# Try out the contract (does nothing)
+cleos push action example buydog '[&quot;eosio&quot;, &quot;fido&quot;, &quot;100.0000 EOS&quot;]' -p eosio
+</code></pre>
+<h2 id="vscode-support"><a class="header" href="#vscode-support">vscode support</a></h2>
+<p>The following files configure vscode:</p>
+<ul>
+<li><a href="contract/basic/.vscode/c_cpp_properties.json">.vscode/c_cpp_properties.json</a></li>
+<li><a href="contract/basic/.vscode/settings.json">.vscode/settings.json</a></li>
+</ul>
+<p>Code completion and symbol lookup does not work until the project is built (above).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tables"><a class="header" href="#tables">Tables</a></h1>
+<p>Here is a contract that uses a table. Place <code>table.cpp</code> and <code>CMakeLists.txt</code> in an empty folder.</p>
+<h2 id="tablecpp"><a class="header" href="#tablecpp"><code>table.cpp</code></a></h2>
+<pre><code class="language-cpp">#include &lt;eosio/asset.hpp&gt;
+#include &lt;eosio/eosio.hpp&gt;
+
+namespace example
+{
+   // A purchased animal
+   struct animal
+   {
+      eosio::name name;             // Name of animal
+      eosio::name type;             // Type of animal
+      eosio::name owner;            // Who owns the animal
+      eosio::asset purchase_price;  // How much the owner paid
+
+      uint64_t primary_key() const { return name.value; }
+   };
+
+   // This does 2 things:
+   // * Controls which fields are stored in the table
+   // * Lets the ABI generator know the field names
+   EOSIO_REFLECT(animal, name, type, owner, purchase_price)
+
+   // Table definition
+   typedef eosio::multi_index&lt;&quot;animal&quot;_n, animal&gt; animal_table;
+
+   struct example_contract : public eosio::contract
+   {
+      using eosio::contract::contract;
+
+      // Action: user buys a dog
+      void buydog(eosio::name user, eosio::name dog, const eosio::asset&amp; price)
+      {
+         require_auth(user);
+         animal_table table{get_self(), get_self().value};
+         table.emplace(user, [&amp;](auto&amp; record) {
+            record.name = dog;
+            record.type = &quot;dog&quot;_n;
+            record.owner = user;
+            record.purchase_price = price;
+         });
+      }
+   };
+
+   EOSIO_ACTIONS(example_contract,  //
+                 &quot;example&quot;_n,       //
+                 action(buydog, user, dog, price))
+}  // namespace example
+
+EOSIO_ACTION_DISPATCHER(example::actions)
+
+EOSIO_ABIGEN(
+    // Include the contract actions in the ABI
+    actions(example::actions),
+
+    // Include the table in the ABI
+    table(&quot;animal&quot;_n, example::animal))
+</code></pre>
+<h2 id="additional-files"><a class="header" href="#additional-files">Additional files</a></h2>
+<ul>
+<li><a href="contract/table/CMakeLists.txt">CMakeLists.txt</a></li>
+<li><a href="contract/table/.vscode/c_cpp_properties.json">.vscode/c_cpp_properties.json</a></li>
+<li><a href="contract/table/.vscode/settings.json">.vscode/settings.json</a></li>
+</ul>
+<h2 id="building-1"><a class="header" href="#building-1">Building</a></h2>
+<p>This will create <code>table.wasm</code> and <code>table.abi</code>:</p>
+<pre><code class="language-sh">mkdir build
+cd build
+cmake `clsdk-cmake-args` ..
+make -j $(nproc)
+</code></pre>
+<h2 id="trying-the-contract-1"><a class="header" href="#trying-the-contract-1">Trying the contract</a></h2>
+<pre><code># Create some users
+cleos create account eosio alice EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos create account eosio bob EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+
+# Install the contract
+cleos create account eosio table EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos set abi table table.abi
+cleos set code table table.wasm
+
+# Try out the contract
+cleos push action table buydog '[&quot;alice&quot;, &quot;fido&quot;, &quot;100.0000 EOS&quot;]' -p alice
+cleos push action table buydog '[&quot;alice&quot;, &quot;rex&quot;, &quot;120.0000 EOS&quot;]' -p alice
+cleos push action table buydog '[&quot;bob&quot;, &quot;lambo&quot;, &quot;70.0000 EOS&quot;]' -p bob
+
+# See the purchased animals
+cleos get table table table animal
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="notifications"><a class="header" href="#notifications">Notifications</a></h1>
+<p>This contract adds the following capabilities to the previous examples:</p>
+<ul>
+<li>Receives notifications from <code>eosio.token</code> and tracks user balances</li>
+<li>Deducts from the user balance whenever the user buys a dog</li>
+</ul>
+<p>This example does not cover:</p>
+<ul>
+<li>Removing empty balance records</li>
+<li>Returning excess funds to users</li>
+<li>Protecting against dust attacks on the balance table</li>
+<li>Treating incoming funds from system accounts as special (e.g. unstaking, selling rex, selling ram)</li>
+</ul>
+<p>Place <code>notify.cpp</code> and <code>CMakeLists.txt</code> in an empty folder.</p>
+<h2 id="notifycpp"><a class="header" href="#notifycpp"><code>notify.cpp</code></a></h2>
+<pre><code class="language-cpp">#include &lt;eosio/asset.hpp&gt;
+#include &lt;eosio/eosio.hpp&gt;
+
+namespace example
+{
+   // Keep track of deposited funds
+   struct balance
+   {
+      eosio::name owner;
+      eosio::asset balance;
+
+      uint64_t primary_key() const { return owner.value; }
+   };
+   EOSIO_REFLECT(balance, owner, balance)
+   typedef eosio::multi_index&lt;&quot;balance&quot;_n, balance&gt; balance_table;
+
+   // A purchased animal
+   struct animal
+   {
+      eosio::name name;
+      eosio::name type;
+      eosio::name owner;
+      eosio::asset purchase_price;
+
+      uint64_t primary_key() const { return name.value; }
+   };
+   EOSIO_REFLECT(animal, name, type, owner, purchase_price)
+   typedef eosio::multi_index&lt;&quot;animal&quot;_n, animal&gt; animal_table;
+
+   struct example_contract : public eosio::contract
+   {
+      using eosio::contract::contract;
+
+      // eosio.token transfer notification
+      void notify_transfer(eosio::name from,
+                           eosio::name to,
+                           const eosio::asset&amp; quantity,
+                           std::string memo)
+      {
+         // Only track incoming transfers
+         if (from == get_self())
+            return;
+
+         // The dispatcher has already checked the token contract.
+         // We need to check the token type.
+         eosio::check(quantity.symbol == eosio::symbol{&quot;EOS&quot;, 4},
+                      &quot;This contract does not deal with this token&quot;);
+
+         // Record the change
+         add_balance(from, quantity);
+      }
+
+      // Action: user buys a dog
+      void buydog(eosio::name user, eosio::name dog, const eosio::asset&amp; price)
+      {
+         require_auth(user);
+         eosio::check(price.symbol == eosio::symbol{&quot;EOS&quot;, 4},
+                      &quot;This contract does not deal with this token&quot;);
+         eosio::check(price.amount &gt;= 50'0000, &quot;Dogs cost more than that&quot;);
+         sub_balance(user, price);
+         animal_table table{get_self(), get_self().value};
+         table.emplace(user, [&amp;](auto&amp; record) {
+            record.name = dog;
+            record.type = &quot;dog&quot;_n;
+            record.owner = user;
+            record.purchase_price = price;
+         });
+      }
+
+      // This is not an action; it's a function internal to the contract
+      void add_balance(eosio::name owner, const eosio::asset&amp; quantity)
+      {
+         balance_table table(get_self(), get_self().value);
+         auto record = table.find(owner.value);
+         if (record == table.end())
+            table.emplace(get_self(), [&amp;](auto&amp; a) {
+               a.owner = owner;
+               a.balance = quantity;
+            });
+         else
+            table.modify(record, eosio::same_payer, [&amp;](auto&amp; a) { a.balance += quantity; });
+      }
+
+      // This is not an action; it's a function internal to the contract
+      void sub_balance(eosio::name owner, const eosio::asset&amp; quantity)
+      {
+         balance_table table(get_self(), get_self().value);
+         const auto&amp; record = table.get(owner.value, &quot;user does not have a balance&quot;);
+         eosio::check(record.balance.amount &gt;= quantity.amount, &quot;not enough funds deposited&quot;);
+         table.modify(record, owner, [&amp;](auto&amp; a) { a.balance -= quantity; });
+      }
+   };
+
+   EOSIO_ACTIONS(example_contract,
+                 &quot;example&quot;_n,
+                 notify(&quot;eosio.token&quot;_n, transfer),  // Hook up notification
+                 action(buydog, user, dog, price))
+}  // namespace example
+
+EOSIO_ACTION_DISPATCHER(example::actions)
+
+EOSIO_ABIGEN(actions(example::actions),
+             table(&quot;balance&quot;_n, example::balance),
+             table(&quot;animal&quot;_n, example::animal))
+</code></pre>
+<h2 id="additional-files-1"><a class="header" href="#additional-files-1">Additional files</a></h2>
+<ul>
+<li><a href="contract/notify/CMakeLists.txt">CMakeLists.txt</a></li>
+<li><a href="contract/notify/.vscode/c_cpp_properties.json">.vscode/c_cpp_properties.json</a></li>
+<li><a href="contract/notify/.vscode/settings.json">.vscode/settings.json</a></li>
+</ul>
+<h2 id="building-2"><a class="header" href="#building-2">Building</a></h2>
+<p>This will create <code>notify.wasm</code> and <code>notify.abi</code>:</p>
+<pre><code class="language-sh">mkdir build
+cd build
+cmake `clsdk-cmake-args` ..
+make -j $(nproc)
+</code></pre>
+<h2 id="trying-the-contract-2"><a class="header" href="#trying-the-contract-2">Trying the contract</a></h2>
+<pre><code># Create some users
+cleos create account eosio alice EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos create account eosio bob EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+
+# Set up eosio.token
+# Note: the build system created a symlink to clsdk for easy access to the token contract
+cleos create account eosio eosio.token EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos set abi eosio.token clsdk/contracts/token.abi
+cleos set code eosio.token clsdk/contracts/token.wasm
+
+cleos push action eosio.token create '[&quot;eosio&quot;, &quot;1000000000.0000 EOS&quot;]' -p eosio.token
+cleos push action eosio.token issue '[&quot;eosio&quot;, &quot;1000000000.0000 EOS&quot;, &quot;&quot;]' -p eosio
+cleos push action eosio.token open '[&quot;alice&quot;, &quot;4,EOS&quot;, &quot;alice&quot;]' -p alice
+cleos push action eosio.token open '[&quot;bob&quot;, &quot;4,EOS&quot;, &quot;bob&quot;]' -p bob
+cleos push action eosio.token transfer '[&quot;eosio&quot;, &quot;alice&quot;, &quot;10000.0000 EOS&quot;, &quot;have some&quot;]' -p eosio
+cleos push action eosio.token transfer '[&quot;eosio&quot;, &quot;bob&quot;, &quot;10000.0000 EOS&quot;, &quot;have some&quot;]' -p eosio
+
+# Install the contract
+cleos create account eosio notify EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos set abi notify notify.abi
+cleos set code notify notify.wasm
+
+# Try out the contract
+cleos push action eosio.token transfer '[&quot;alice&quot;, &quot;notify&quot;, &quot;300.0000 EOS&quot;, &quot;for purchases&quot;]' -p alice
+cleos push action eosio.token transfer '[&quot;bob&quot;, &quot;notify&quot;, &quot;300.0000 EOS&quot;, &quot;for purchases&quot;]' -p bob
+
+cleos push action notify buydog '[&quot;alice&quot;, &quot;fido&quot;, &quot;100.0000 EOS&quot;]' -p alice
+cleos push action notify buydog '[&quot;alice&quot;, &quot;rex&quot;, &quot;120.0000 EOS&quot;]' -p alice
+cleos push action notify buydog '[&quot;bob&quot;, &quot;lambo&quot;, &quot;70.0000 EOS&quot;]' -p bob
+
+# See the remaining balances and the purchased animals
+cleos get table notify notify balance
+cleos get table notify notify animal
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="debugging"><a class="header" href="#debugging">Debugging</a></h1>
+<p>This contract is identical to the one in <a href="contract/debug/../notify/index.html">Notifications</a>, except it extends <code>CMakeLists.txt</code> to build <code>notify-debug.wasm</code> and it has an additional config file (<code>launch.json</code>).</p>
+<h2 id="cmakeliststxt-1"><a class="header" href="#cmakeliststxt-1"><code>CMakeLists.txt</code></a></h2>
+<pre><code class="language-cpp"># All cmake projects need these
+cmake_minimum_required(VERSION 3.16)
+project(notify)
+
+# clsdk requires C++20
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Libraries for building contracts and tests
+find_package(clsdk REQUIRED)
+
+# Build notify.wasm contract
+add_executable(notify notify.cpp)
+target_link_libraries(notify eosio-contract-simple-malloc)
+
+# Build notify-debug.wasm
+# This is like notify.wasm, but includes debugging information.
+add_executable(notify-debug notify.cpp)
+target_link_libraries(notify-debug eosio-contract-simple-malloc-debug)
+
+# Generate notify.abi
+# This is a 2-step process:
+#   * Build notify.abi.wasm. This must link to eosio-contract-abigen.
+#   * Run the wasm to generate the abi
+add_executable(notify-abigen notify.cpp)
+target_link_libraries(notify-abigen eosio-contract-abigen)
+add_custom_command(TARGET notify-abigen POST_BUILD
+    COMMAND cltester notify-abigen.wasm &gt;notify.abi
+)
+
+# These symlinks help vscode
+execute_process(COMMAND ln -sf ${clsdk_DIR} ${CMAKE_CURRENT_BINARY_DIR}/clsdk)
+execute_process(COMMAND ln -sf ${WASI_SDK_PREFIX} ${CMAKE_CURRENT_BINARY_DIR}/wasi-sdk)
+
+# Generate compile_commands.json to aid vscode and other editors
+set(CMAKE_EXPORT_COMPILE_COMMANDS on)
+</code></pre>
+<h2 id="additional-files-2"><a class="header" href="#additional-files-2">Additional files</a></h2>
+<ul>
+<li><a href="contract/debug/notify.cpp">notify.cpp</a></li>
+<li><a href="contract/debug/.vscode/c_cpp_properties.json">.vscode/c_cpp_properties.json</a></li>
+<li><a href="contract/debug/.vscode/settings.json">.vscode/settings.json</a></li>
+<li><a href="contract/debug/.vscode/launch.json">.vscode/launch.json</a></li>
+</ul>
+<h2 id="building-3"><a class="header" href="#building-3">Building</a></h2>
+<p>This will create <code>notify.wasm</code>, <code>notify-debug.wasm</code>, and <code>notify.abi</code>:</p>
+<pre><code class="language-sh">mkdir build
+cd build
+cmake `clsdk-cmake-args` ..
+make -j $(nproc)
+</code></pre>
+<h2 id="nodeos-debug_plugin"><a class="header" href="#nodeos-debug_plugin">Nodeos debug_plugin</a></h2>
+<p>debug_plugin (included in the nodeos binary that comes with clsdk) adds these new capabilities to nodeos:</p>
+<ul>
+<li>Wasm substitution (<code>--subst contract.wasm:debug.wasm</code>). This instructs nodeos to execute <code>debug.wasm</code> whenever it would otherwise execute <code>contract.wasm</code>. nodeos identifies wasms by hash, so this affects all accounts which have the same wasm installed.</li>
+<li>Relaxed wasm limits. Debugging wasms are usually much larger than normal contract wasms. debug_plugin removes eosio wasm limits to allow the larger wasms to execute. They are also slower, so it also removes execution time limits.</li>
+<li>Debug info support. It transforms wasm debug info into native debug info. This enables <code>gdb</code> to debug executing contracts.</li>
+</ul>
+<p>Only substituted wasms get the relaxed limits and debug info support.</p>
+<p>Caution: debug_plugin intentionally breaks consensus rules to function; nodes using it may fork away from production chains.</p>
+<p>Caution: stopping nodeos from inside the debugger will corrupt its database.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="debugging-using-vscode"><a class="header" href="#debugging-using-vscode">Debugging using vscode</a></h1>
+<p>You should have the following project tree:</p>
+<pre><code>&lt;project root&gt;/   &lt;==== open this directory in vscode
+   .vscode/
+      c_cpp_properties.json
+      launch.json
+      settings.json
+   CMakeLists.txt
+   notify.cpp
+   build/         (Created by build step)
+      clsdk -&gt; ....
+      notify-debug.wasm
+      notify.abi
+      notify.wasm
+      wasi-sdk -&gt; ....
+</code></pre>
+<p><code>launch.json</code> sets the following nodeos options. Adjust them to your needs:</p>
+<pre><code>-d data --config-dir config
+--plugin eosio::chain_api_plugin
+--plugin eosio::producer_api_plugin
+--plugin eosio::debug_plugin
+--subst clsdk/contracts/token.wasm:clsdk/contracts/token-debug.wasm
+--subst notify.wasm:notify-debug.wasm
+-e -p eosio
+</code></pre>
+<p>Open <code>notify.cpp</code> and set some break points. You may also add break points to <code>build/clsdk/contracts/token/src/token.cpp</code>.</p>
+<p>Start the debugger. nodeos will start running. To see its log, switch to the &quot;cppdbg: nodeos&quot; terminal.</p>
+<p>From another terminal, use these commands to install and exercise the contracts. The debugger should hit the breakpoints you set in the contracts and pause.</p>
+<pre><code>cd build
+
+# Create some users
+cleos create account eosio alice EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos create account eosio bob EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+
+# Set up eosio.token
+# Note: the build system created a symlink to clsdk for easy access to the token contract
+cleos create account eosio eosio.token EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos set abi eosio.token clsdk/contracts/token.abi
+cleos set code eosio.token clsdk/contracts/token.wasm
+
+cleos push action eosio.token create '[&quot;eosio&quot;, &quot;1000000000.0000 EOS&quot;]' -p eosio.token
+cleos push action eosio.token issue '[&quot;eosio&quot;, &quot;1000000000.0000 EOS&quot;, &quot;&quot;]' -p eosio
+cleos push action eosio.token open '[&quot;alice&quot;, &quot;4,EOS&quot;, &quot;alice&quot;]' -p alice
+cleos push action eosio.token open '[&quot;bob&quot;, &quot;4,EOS&quot;, &quot;bob&quot;]' -p bob
+cleos push action eosio.token transfer '[&quot;eosio&quot;, &quot;alice&quot;, &quot;10000.0000 EOS&quot;, &quot;have some&quot;]' -p eosio
+cleos push action eosio.token transfer '[&quot;eosio&quot;, &quot;bob&quot;, &quot;10000.0000 EOS&quot;, &quot;have some&quot;]' -p eosio
+
+# Install the notify contract
+cleos create account eosio notify EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos set abi notify notify.abi
+cleos set code notify notify.wasm
+
+# Try out the notify contract
+cleos push action eosio.token transfer '[&quot;alice&quot;, &quot;notify&quot;, &quot;300.0000 EOS&quot;, &quot;for purchases&quot;]' -p alice
+cleos push action eosio.token transfer '[&quot;bob&quot;, &quot;notify&quot;, &quot;300.0000 EOS&quot;, &quot;for purchases&quot;]' -p bob
+
+cleos push action notify buydog '[&quot;alice&quot;, &quot;fido&quot;, &quot;100.0000 EOS&quot;]' -p alice
+cleos push action notify buydog '[&quot;alice&quot;, &quot;rex&quot;, &quot;120.0000 EOS&quot;]' -p alice
+cleos push action notify buydog '[&quot;bob&quot;, &quot;lambo&quot;, &quot;70.0000 EOS&quot;]' -p bob
+
+# See the remaining balances and the purchased animals
+cleos get table notify notify balance
+cleos get table notify notify animal
+</code></pre>
+<h2 id="debugging-functionality"><a class="header" href="#debugging-functionality">Debugging functionality</a></h2>
+<p>The following are available:</p>
+<ul>
+<li>breakpoints</li>
+<li>step in</li>
+<li>step out</li>
+<li>step over</li>
+<li>continue</li>
+<li>call stack</li>
+</ul>
+<p>The following are not available</p>
+<ul>
+<li>examining variables</li>
+<li>examining memory</li>
+</ul>
+<h2 id="corrupted-database-recovery"><a class="header" href="#corrupted-database-recovery">Corrupted database recovery</a></h2>
+<p>The debugger can cause nodeos to corrupt its database. There are 2 options to recover from the corruption:</p>
+<ul>
+<li>Wipe the database and start over: from the <code>build</code> directory, run <code>rm -rf data</code></li>
+<li>Force a replay. This can trigger breakpoints (helpful for reproductions). From the <code>build</code> directory, run <code>rm -rf data/state data/blocks/reversible</code>. Alternatively, add <code>--hard-replay-blockchain</code> to the nodeos options in <code>launch.json</code>.</li>
+</ul>
+<p>You can start nodeos again in the debugger after doing one of the above.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="debugging-using-gdb-command-line"><a class="header" href="#debugging-using-gdb-command-line">Debugging using gdb command line</a></h1>
+<p>You should have the following project tree:</p>
+<pre><code>&lt;project root&gt;/
+   CMakeLists.txt
+   notify.cpp
+   build/         (Created by build step)
+      clsdk -&gt; ....
+      notify-debug.wasm
+      notify.abi
+      notify.wasm
+      wasi-sdk -&gt; ....
+</code></pre>
+<p>To start a debug session on the command line:</p>
+<pre><code>cd build
+gdb -q --args                                                           \
+   ./clsdk/bin/nodeos                                                   \
+   -d data --config-dir config                                          \
+   --plugin eosio::chain_api_plugin                                     \
+   --plugin eosio::producer_api_plugin                                  \
+   --plugin eosio::debug_plugin                                         \
+   --subst clsdk/contracts/token.wasm:clsdk/contracts/token-debug.wasm  \
+   --subst notify.wasm:notify-debug.wasm                                \
+   -e -p eosio
+</code></pre>
+<p>Ignore <code>No debugging symbols found in ...</code>; it will load debugging symbols for the wasm files instead.</p>
+<p>The following gdb commands set options gdb needs to function, set some breakpoints, and start nodeos.</p>
+<pre><code>handle SIG34 noprint
+set breakpoint pending on
+set substitute-path clsdk-wasi-sdk: wasi-sdk
+set substitute-path clsdk: clsdk
+b example_contract::notify_transfer
+b example_contract::buydog
+run
+</code></pre>
+<p>From another terminal, use these commands to install and exercise the contracts. The debugger should hit the breakpoints you set in the contracts and pause.</p>
+<pre><code>cd build
+
+# Create some users
+cleos create account eosio alice EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos create account eosio bob EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+
+# Set up eosio.token
+# Note: the build system created a symlink to clsdk for easy access to the token contract
+cleos create account eosio eosio.token EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos set abi eosio.token clsdk/contracts/token.abi
+cleos set code eosio.token clsdk/contracts/token.wasm
+
+cleos push action eosio.token create '[&quot;eosio&quot;, &quot;1000000000.0000 EOS&quot;]' -p eosio.token
+cleos push action eosio.token issue '[&quot;eosio&quot;, &quot;1000000000.0000 EOS&quot;, &quot;&quot;]' -p eosio
+cleos push action eosio.token open '[&quot;alice&quot;, &quot;4,EOS&quot;, &quot;alice&quot;]' -p alice
+cleos push action eosio.token open '[&quot;bob&quot;, &quot;4,EOS&quot;, &quot;bob&quot;]' -p bob
+cleos push action eosio.token transfer '[&quot;eosio&quot;, &quot;alice&quot;, &quot;10000.0000 EOS&quot;, &quot;have some&quot;]' -p eosio
+cleos push action eosio.token transfer '[&quot;eosio&quot;, &quot;bob&quot;, &quot;10000.0000 EOS&quot;, &quot;have some&quot;]' -p eosio
+
+# Install the notify contract
+cleos create account eosio notify EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+cleos set abi notify notify.abi
+cleos set code notify notify.wasm
+
+# Try out the notify contract; these should trigger breakpoints
+cleos push action eosio.token transfer '[&quot;alice&quot;, &quot;notify&quot;, &quot;300.0000 EOS&quot;, &quot;for purchases&quot;]' -p alice
+cleos push action eosio.token transfer '[&quot;bob&quot;, &quot;notify&quot;, &quot;300.0000 EOS&quot;, &quot;for purchases&quot;]' -p bob
+
+cleos push action notify buydog '[&quot;alice&quot;, &quot;fido&quot;, &quot;100.0000 EOS&quot;]' -p alice
+cleos push action notify buydog '[&quot;alice&quot;, &quot;rex&quot;, &quot;120.0000 EOS&quot;]' -p alice
+cleos push action notify buydog '[&quot;bob&quot;, &quot;lambo&quot;, &quot;70.0000 EOS&quot;]' -p bob
+
+# See the remaining balances and the purchased animals
+cleos get table notify notify balance
+cleos get table notify notify animal
+</code></pre>
+<h2 id="debugging-functionality-1"><a class="header" href="#debugging-functionality-1">Debugging functionality</a></h2>
+<p>The following functionality is supported:</p>
+<ul>
+<li>breakpoints (<code>b</code>)</li>
+<li>step in (<code>s</code>)</li>
+<li>step out (<code>fin</code>)</li>
+<li>step over (<code>n</code>)</li>
+<li>continue (<code>c</code>)</li>
+<li>call stack (<code>bt</code>)</li>
+</ul>
+<p>The following are not available:</p>
+<ul>
+<li>examining variables</li>
+<li>examining memory</li>
+</ul>
+<h2 id="corrupted-database-recovery-1"><a class="header" href="#corrupted-database-recovery-1">Corrupted database recovery</a></h2>
+<p>The debugger can cause nodeos to corrupt its database. There are 2 options to recover from the corruption:</p>
+<ul>
+<li>Wipe the database and start over: from the <code>build</code> directory, run <code>rm -rf data</code></li>
+<li>Force a replay. This can trigger breakpoints (helpful for reproductions). From the <code>build</code> directory, run <code>rm -rf data/state data/blocks/reversible</code>. Alternatively, add <code>--hard-replay-blockchain</code> to the nodeos options.</li>
+</ul>
+<p>You can start nodeos again in the debugger after doing one of the above.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cltester-getting-started"><a class="header" href="#cltester-getting-started">cltester: Getting Started</a></h1>
+<h2 id="contract-modifications"><a class="header" href="#contract-modifications">Contract modifications</a></h2>
+<p>To simplify testing, the contract's class definition and table definitions should be in a header file.</p>
+<p>This example is based on the <a href="cltester/starting/../../contract/debug/index.html">Debug Example</a>, but has these additions:</p>
+<ul>
+<li>The contract source is now split into <code>testable.hpp</code> and <code>testable.cpp</code></li>
+<li>CMakeLists.txt has a new rule to build <code>tests.wasm</code> from <code>tests.cpp</code> (below)</li>
+<li><code>launch.json</code> now launches the test cases in cltester instead of starting nodeos</li>
+</ul>
+<p>The files:</p>
+<ul>
+<li><a href="cltester/starting/testable.hpp">testable.hpp</a></li>
+<li><a href="cltester/starting/testable.cpp">testable.cpp</a></li>
+<li><a href="cltester/starting/CMakeLists.txt">CMakeLists.txt</a></li>
+<li><a href="cltester/starting/.vscode/c_cpp_properties.json">.vscode/c_cpp_properties.json</a></li>
+<li><a href="cltester/starting/.vscode/settings.json">.vscode/settings.json</a></li>
+<li><a href="cltester/starting/.vscode/launch.json">.vscode/launch.json</a></li>
+</ul>
+<h2 id="simple-test-case"><a class="header" href="#simple-test-case">Simple test case</a></h2>
+<p><code>tests.cpp</code>:</p>
+<pre><code class="language-cpp">// cltester definitions
+#include &lt;eosio/tester.hpp&gt;
+
+// contract definitions
+#include &quot;testable.hpp&quot;
+
+// Catch2 unit testing framework. https://github.com/catchorg/Catch2
+#define CATCH_CONFIG_MAIN
+#include &lt;catch2/catch.hpp&gt;
+
+using namespace eosio;
+
+TEST_CASE(&quot;No tokens&quot;)
+{
+   // This starts a blockchain. This is similar to running nodeos, but forces
+   // creation of a new blockchain and offers more control.
+   test_chain chain;
+
+   // Install the testable contract. Some notes:
+   // * create_code_account is like create_account (used below), except it adds
+   //   eosio.code to the active authority.
+   // * cltester doesn't need the ABI to operate, so we don't need to set it.
+   chain.create_code_account(&quot;example&quot;_n);
+   chain.set_code(&quot;example&quot;_n, &quot;testable.wasm&quot;);
+
+   // Create a user account
+   chain.create_account(&quot;alice&quot;_n);
+
+   // Alice tries to buy a dog, but has no tokens
+   // This verifies the appropriate error is produced
+   expect(chain.as(&quot;alice&quot;_n).trace&lt;example::actions::buydog&gt;(  //
+              &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;0.0000 EOS&quot;)),
+          &quot;Dogs cost more than that&quot;);
+}
+</code></pre>
+<h2 id="running-the-test"><a class="header" href="#running-the-test">Running the test</a></h2>
+<p>This builds the contract and the test:</p>
+<pre><code>mkdir build
+cd build
+cmake `clsdk-cmake-args` ..
+make -j $(nproc)
+</code></pre>
+<p>Use one of these to run the test:</p>
+<pre><code class="language-sh">cltester tests.wasm        # minimal logging
+cltester -v tests.wasm     # show blockchain logging. This also
+                           # shows any contract prints in green.
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cltester-debugging-using-vscode"><a class="header" href="#cltester-debugging-using-vscode">cltester: Debugging using vscode</a></h1>
+<p>You should have the following project tree:</p>
+<pre><code>&lt;project root&gt;/   &lt;==== open this directory in vscode
+   .vscode/
+      c_cpp_properties.json
+      launch.json
+      settings.json
+   CMakeLists.txt
+   testable.hpp
+   testable.cpp
+   tests.cpp
+   build/         (Created by build step)
+      clsdk -&gt; ....
+      testable-debug.wasm
+      testable.abi
+      testable.wasm
+      tests.wasm
+      wasi-sdk -&gt; ....
+</code></pre>
+<p><code>launch.json</code> is configured to run the tests using cltester instead of starting nodeos. It sets the following cltester options:</p>
+<pre><code>--subst testable.wasm testable-debug.wasm
+-v
+tests.wasm
+</code></pre>
+<p>Open <code>testable.cpp</code> and set some break points. You may also add break points to <code>tests</code>.</p>
+<p>Start the debugger. cltester will start running. To see its log, switch to the &quot;cppdbg: cltester&quot; terminal. vscode should stop at one of your breakpoints.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cltester-debugging-using-gdb-command-line"><a class="header" href="#cltester-debugging-using-gdb-command-line">cltester: Debugging using gdb command line</a></h1>
+<p>You should have the following project tree:</p>
+<pre><code>&lt;project root&gt;/
+   CMakeLists.txt
+   testable.hpp
+   testable.cpp
+   tests.cpp
+   build/         (Created by build step)
+      clsdk -&gt; ....
+      testable-debug.wasm
+      testable.abi
+      testable.wasm
+      tests.wasm
+      wasi-sdk -&gt; ....
+</code></pre>
+<p>To start a debug session on the command line:</p>
+<pre><code>cd build
+gdb -q --args                                \
+   ./clsdk/bin/cltester                      \
+   --subst testable.wasm testable-debug.wasm \
+   -v                                        \
+   tests.wasm
+</code></pre>
+<p>Ignore <code>No debugging symbols found in ...</code>; it will load debugging symbols for the wasm files instead.</p>
+<p>The following gdb commands set options gdb needs to function, set some breakpoints, and start cltester.</p>
+<pre><code>handle SIG34 noprint
+set breakpoint pending on
+set substitute-path clsdk-wasi-sdk: wasi-sdk
+set substitute-path clsdk: clsdk
+b example_contract::notify_transfer
+b example_contract::buydog
+run
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cltester-token-support"><a class="header" href="#cltester-token-support">cltester: Token Support</a></h1>
+<p>Our test cases need to interact with the token contract in order to fully test our example. clsdk comes with a cltester-ready version of the token contract.</p>
+<p>Example files:</p>
+<ul>
+<li><a href="cltester/token/testable.hpp">testable.hpp</a></li>
+<li><a href="cltester/token/testable.cpp">testable.cpp</a></li>
+<li><a href="cltester/token/tests.cpp">tests.cpp</a></li>
+<li><a href="cltester/token/CMakeLists.txt">CMakeLists.txt</a></li>
+<li><a href="cltester/token/.vscode/c_cpp_properties.json">.vscode/c_cpp_properties.json</a></li>
+<li><a href="cltester/token/.vscode/settings.json">.vscode/settings.json</a></li>
+<li><a href="cltester/token/.vscode/launch.json">.vscode/launch.json</a></li>
+</ul>
+<h2 id="test-cases"><a class="header" href="#test-cases">Test cases</a></h2>
+<p>This demonstrates the following:</p>
+<ul>
+<li>Interacting with the token contract in tests</li>
+<li>Running multiple tests using multiple chains</li>
+<li>Creating helper functions to reduce repetition in tests</li>
+</ul>
+<p><code>tests.cpp</code>:</p>
+<pre><code class="language-cpp">#include &lt;eosio/tester.hpp&gt;
+#include &lt;token/token.hpp&gt;  // comes bundled with clsdk
+#include &quot;testable.hpp&quot;
+
+#define CATCH_CONFIG_MAIN
+#include &lt;catch2/catch.hpp&gt;
+
+using namespace eosio;
+
+// Set up the token contract
+void setup_token(test_chain&amp; t)
+{
+   t.create_code_account(&quot;eosio.token&quot;_n);
+   t.set_code(&quot;eosio.token&quot;_n, CLSDK_CONTRACTS_DIR &quot;token.wasm&quot;);
+
+   // Create and issue tokens.
+   t.as(&quot;eosio.token&quot;_n).act&lt;token::actions::create&gt;(&quot;eosio&quot;_n, s2a(&quot;1000000.0000 EOS&quot;));
+   t.as(&quot;eosio.token&quot;_n).act&lt;token::actions::create&gt;(&quot;eosio&quot;_n, s2a(&quot;1000000.0000 OTHER&quot;));
+   t.as(&quot;eosio&quot;_n).act&lt;token::actions::issue&gt;(&quot;eosio&quot;_n, s2a(&quot;1000000.0000 EOS&quot;), &quot;&quot;);
+   t.as(&quot;eosio&quot;_n).act&lt;token::actions::issue&gt;(&quot;eosio&quot;_n, s2a(&quot;1000000.0000 OTHER&quot;), &quot;&quot;);
+}
+
+// Create and fund user accounts
+void fund_users(test_chain&amp; t)
+{
+   for (auto user : {&quot;alice&quot;_n, &quot;bob&quot;_n, &quot;jane&quot;_n, &quot;joe&quot;_n})
+   {
+      t.create_account(user);
+      t.as(&quot;eosio&quot;_n).act&lt;token::actions::transfer&gt;(&quot;eosio&quot;_n, user, s2a(&quot;10000.0000 EOS&quot;), &quot;&quot;);
+      t.as(&quot;eosio&quot;_n).act&lt;token::actions::transfer&gt;(&quot;eosio&quot;_n, user, s2a(&quot;10000.0000 OTHER&quot;), &quot;&quot;);
+   }
+}
+
+// Set up the example contract
+void setup_example(test_chain&amp; t)
+{
+   t.create_code_account(&quot;example&quot;_n);
+   t.set_code(&quot;example&quot;_n, &quot;testable.wasm&quot;);
+}
+
+// Full setup for test chain
+void setup(test_chain&amp; t)
+{
+   setup_token(t);
+   fund_users(t);
+   setup_example(t);
+}
+
+TEST_CASE(&quot;Alice Attacks&quot;)
+{
+   // This is the first blockchain
+   test_chain chain;
+   setup(chain);
+
+   // Alice tries to get a dog for free
+   // This verifies the appropriate error is produced
+   expect(chain.as(&quot;alice&quot;_n).trace&lt;example::actions::buydog&gt;(  //
+              &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;0.0000 EOS&quot;)),
+          &quot;Dogs cost more than that&quot;);
+
+   // Alice tries to buy a dog, but hasn't transferred any tokens to the contract
+   expect(chain.as(&quot;alice&quot;_n).trace&lt;example::actions::buydog&gt;(  //
+              &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;100.0000 EOS&quot;)),
+          &quot;user does not have a balance&quot;);
+
+   // Alice tries to transfer an unsupported token to the contract
+   expect(chain.as(&quot;alice&quot;_n).trace&lt;token::actions::transfer&gt;(  //
+              &quot;alice&quot;_n, &quot;example&quot;_n, s2a(&quot;100.0000 OTHER&quot;), &quot;&quot;),
+          &quot;This contract does not deal with this token&quot;);
+
+   // Alice transfers the correct token
+   chain.as(&quot;alice&quot;_n).act&lt;token::actions::transfer&gt;(  //
+       &quot;alice&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;&quot;);
+
+   // Alice tries to get sneaky with the wrong token
+   expect(chain.as(&quot;alice&quot;_n).trace&lt;example::actions::buydog&gt;(  //
+              &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;100.0000 OTHER&quot;)),
+          &quot;This contract does not deal with this token&quot;);
+}
+
+TEST_CASE(&quot;No duplicate dog names&quot;)
+{
+   // This is a different blockchain than used from the previous test
+   test_chain chain;
+   setup(chain);
+
+   // Alice goes first
+   chain.as(&quot;alice&quot;_n).act&lt;token::actions::transfer&gt;(  //
+       &quot;alice&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;&quot;);
+   chain.as(&quot;alice&quot;_n).act&lt;example::actions::buydog&gt;(  //
+       &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;100.0000 EOS&quot;));
+   chain.as(&quot;alice&quot;_n).act&lt;example::actions::buydog&gt;(  //
+       &quot;alice&quot;_n, &quot;barf&quot;_n, s2a(&quot;110.0000 EOS&quot;));
+
+   // Bob is next
+   chain.as(&quot;bob&quot;_n).act&lt;token::actions::transfer&gt;(  //
+       &quot;bob&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;&quot;);
+   chain.as(&quot;bob&quot;_n).act&lt;example::actions::buydog&gt;(  //
+       &quot;bob&quot;_n, &quot;wolf&quot;_n, s2a(&quot;100.0000 EOS&quot;));
+
+   // Sorry, Bob
+   expect(chain.as(&quot;bob&quot;_n).trace&lt;example::actions::buydog&gt;(  //
+              &quot;bob&quot;_n, &quot;fido&quot;_n, s2a(&quot;100.0000 EOS&quot;)),
+          &quot;could not insert object, most likely a uniqueness constraint was violated&quot;);
+}
+</code></pre>
+<h2 id="running-the-test-1"><a class="header" href="#running-the-test-1">Running the test</a></h2>
+<p>This builds the contract, builds the tests, and runs the tests:</p>
+<pre><code>mkdir build
+cd build
+cmake `clsdk-cmake-args` ..
+make -j $(nproc)
+cltester -v tests.wasm
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cltester-reading-tables"><a class="header" href="#cltester-reading-tables">cltester: Reading Tables</a></h1>
+<p>Test cases can use the same database facilities (read-only) that contracts use. If contracts define all their tables in headers, then the test cases can get the table definitions from the headers.</p>
+<h2 id="dumping-table-content"><a class="header" href="#dumping-table-content">Dumping table content</a></h2>
+<p>The tables in the example contract use a single scope. This makes it possible to iterate through all of the content in a table. The token contract uses a different scope for each user. This makes iteration infeasible. Instead, the test code has to explicitly specify each account to list the accounts' balances.</p>
+<p>This extends the test cases in <a href="cltester/tables/../token/index.html">Token Support</a>:</p>
+<pre><code class="language-c++">void dump_tokens(const std::vector&lt;name&gt; owners)
+{
+   printf(&quot;\nTokens\n=====\n&quot;);
+   for (auto owner : owners)
+   {
+      token::accounts table(&quot;eosio.token&quot;_n, owner.value);
+      for (auto&amp; account : table)
+         printf(&quot;%-12s %s\n&quot;,
+                owner.to_string().c_str(),
+                account.balance.to_string().c_str());
+   }
+}
+
+void dump_animals()
+{
+   printf(&quot;\nAnimals\n=====\n&quot;);
+   example::animal_table table(&quot;example&quot;_n, &quot;example&quot;_n.value);
+   for (auto&amp; animal : table)
+      printf(&quot;%-12s %-12s %-12s %s\n&quot;,
+             animal.name.to_string().c_str(),
+             animal.type.to_string().c_str(),
+             animal.owner.to_string().c_str(),
+             animal.purchase_price.to_string().c_str());
+}
+
+TEST_CASE(&quot;Read Database&quot;)
+{
+   test_chain chain;
+   setup(chain);
+
+   chain.as(&quot;alice&quot;_n).act&lt;token::actions::transfer&gt;(
+       &quot;alice&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;&quot;);
+   chain.as(&quot;alice&quot;_n).act&lt;example::actions::buydog&gt;(
+       &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;100.0000 EOS&quot;));
+   chain.as(&quot;alice&quot;_n).act&lt;example::actions::buydog&gt;(
+       &quot;alice&quot;_n, &quot;barf&quot;_n, s2a(&quot;110.0000 EOS&quot;));
+   chain.as(&quot;bob&quot;_n).act&lt;token::actions::transfer&gt;(
+       &quot;bob&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;&quot;);
+   chain.as(&quot;bob&quot;_n).act&lt;example::actions::buydog&gt;(
+       &quot;bob&quot;_n, &quot;wolf&quot;_n, s2a(&quot;100.0000 EOS&quot;));
+
+   dump_tokens({&quot;eosio&quot;_n, &quot;alice&quot;_n, &quot;bob&quot;_n, &quot;example&quot;_n});
+   dump_animals();
+}
+</code></pre>
+<h2 id="json-form"><a class="header" href="#json-form">JSON form</a></h2>
+<p>clsdk comes with json conversion functions. These can aid dumping tables.</p>
+<pre><code class="language-c++">template &lt;typename Table&gt;
+void dump_table(name contract, uint64_t scope)
+{
+   Table table(contract, scope);
+   for (auto&amp; record : table)
+      std::cout &lt;&lt; format_json(record) &lt;&lt; &quot;\n&quot;;
+}
+
+TEST_CASE(&quot;Read Database 2&quot;)
+{
+   test_chain chain;
+   setup(chain);
+
+   chain.as(&quot;alice&quot;_n).act&lt;token::actions::transfer&gt;(
+       &quot;alice&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;&quot;);
+   chain.as(&quot;alice&quot;_n).act&lt;example::actions::buydog&gt;(
+       &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;100.0000 EOS&quot;));
+   chain.as(&quot;alice&quot;_n).act&lt;example::actions::buydog&gt;(
+       &quot;alice&quot;_n, &quot;barf&quot;_n, s2a(&quot;110.0000 EOS&quot;));
+   chain.as(&quot;bob&quot;_n).act&lt;token::actions::transfer&gt;(
+       &quot;bob&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;&quot;);
+   chain.as(&quot;bob&quot;_n).act&lt;example::actions::buydog&gt;(
+       &quot;bob&quot;_n, &quot;wolf&quot;_n, s2a(&quot;100.0000 EOS&quot;));
+
+   printf(&quot;\nBalances\n=====\n&quot;);
+   dump_table&lt;example::balance_table&gt;(&quot;example&quot;_n, &quot;example&quot;_n.value);
+
+   printf(&quot;\nAnimals\n=====\n&quot;);
+   dump_table&lt;example::animal_table&gt;(&quot;example&quot;_n, &quot;example&quot;_n.value);
+}
+</code></pre>
+<h2 id="verifying-table-content"><a class="header" href="#verifying-table-content">Verifying table content</a></h2>
+<p>Test cases often need to verify table content is correct.</p>
+<pre><code class="language-c++">example::animal get_animal(name animal_name)
+{
+   example::animal_table table(&quot;example&quot;_n, &quot;example&quot;_n.value);
+   auto it = table.find(animal_name.value);
+   if (it != table.end())
+      return *it;
+   else
+      return {};  // return empty record if not found
+}
+
+TEST_CASE(&quot;Verify Animals&quot;)
+{
+   test_chain chain;
+   setup(chain);
+
+   chain.as(&quot;alice&quot;_n).act&lt;token::actions::transfer&gt;(
+       &quot;alice&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;&quot;);
+   chain.as(&quot;alice&quot;_n).act&lt;example::actions::buydog&gt;(
+       &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;100.0000 EOS&quot;));
+   chain.as(&quot;alice&quot;_n).act&lt;example::actions::buydog&gt;(
+       &quot;alice&quot;_n, &quot;barf&quot;_n, s2a(&quot;110.0000 EOS&quot;));
+   chain.as(&quot;bob&quot;_n).act&lt;token::actions::transfer&gt;(
+       &quot;bob&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;&quot;);
+   chain.as(&quot;bob&quot;_n).act&lt;example::actions::buydog&gt;(
+       &quot;bob&quot;_n, &quot;wolf&quot;_n, s2a(&quot;100.0000 EOS&quot;));
+
+   auto fido = get_animal(&quot;fido&quot;_n);
+   CHECK(fido.name == &quot;fido&quot;_n);
+   CHECK(fido.type == &quot;dog&quot;_n);
+   CHECK(fido.owner == &quot;alice&quot;_n);
+   CHECK(fido.purchase_price == s2a(&quot;100.0000 EOS&quot;));
+}
+</code></pre>
+<p>The CHECK macro verifies its condition is met. The <code>-s</code> command-line option shows the progress of these checks:</p>
+<pre><code>$ cltester tests.wasm -s
+
+...
+/.../tests.cpp:78: PASSED:
+  CHECK( fido.name == &quot;fido&quot;_n )
+with expansion:
+  fido == fido
+
+/.../tests.cpp:79: PASSED:
+  CHECK( fido.type == &quot;dog&quot;_n )
+with expansion:
+  dog == dog
+...
+</code></pre>
+<h2 id="table-caching-issue"><a class="header" href="#table-caching-issue">Table caching issue</a></h2>
+<p>The above examples open tables within helper functions to avoid an issue with <code>multi_index</code>. multi_index caches data and so gets confused if a contract modifies a table while the tester has that table currently open.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cltester-asacttrace"><a class="header" href="#cltester-asacttrace">cltester: as/act/trace</a></h1>
+<p>The <code>test_chain</code> class supports this syntax for pushing single-action transactions:</p>
+<pre><code class="language-cpp">chain.as(&quot;alice&quot;_n).act&lt;token::actions::transfer&gt;(
+       &quot;alice&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;memo&quot;);
+</code></pre>
+<h2 id="as"><a class="header" href="#as">as</a></h2>
+<p><code>as(account)</code> returns an object that represents an account's active authority. <code>as</code> also supports other authorities:</p>
+<pre><code class="language-cpp">chain.as(&quot;alice&quot;_n, &quot;owner&quot;_n).act&lt;token::actions::transfer&gt;(
+       &quot;alice&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;memo&quot;);
+</code></pre>
+<h2 id="act"><a class="header" href="#act">act</a></h2>
+<p><code>act&lt;action wrapper&gt;(action args)</code> creates, signs, and executes a single-action transaction. It also verifies the transaction succeeded. If it fails, it aborts the test with an error message.</p>
+<p>The contract headers use <code>EOSIO_ACTIONS(...)</code> to define the action wrappers, e.g. <code>token::actions::transfer</code> or <code>example::actions::buydog</code>. The wrappers record the default contract name (e.g. <code>eosio.token</code>), the name of the action (e.g. <code>transfer</code>), and the argument types. This allows strong type safety. It also bypasses any need for ABIs.</p>
+<p><code>act</code> signs with <code>default_priv_key</code> - a well-known key used for testing (<code>5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3</code>). This key pairs with <code>default_pub_key</code> (<code>EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV</code>). Both the <code>create_account</code> and <code>create_code_account</code> methods create accounts with <code>default_pub_key</code>.</p>
+<h2 id="trace"><a class="header" href="#trace">trace</a></h2>
+<p>Like <code>act</code>, <code>trace&lt;action wrapper&gt;(action args)</code> creates, signs, and executes a single-action transaction. Unlike <code>act</code>, <code>trace</code> does not verify success. Instead, it returns the transaction's trace.</p>
+<p>We could display the trace:</p>
+<pre><code class="language-cpp">auto result = chain.as(&quot;alice&quot;_n).trace&lt;example::actions::buydog&gt;(
+    &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;100.0000 OTHER&quot;));
+std::cout &lt;&lt; format_json(result) &lt;&lt; &quot;\n&quot;;
+</code></pre>
+<p>This produces output like the following:</p>
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;F4EE6CACEF935889E35355568C492409C6F4535565B0B801EC31352DEFAA40F3&quot;,
+    &quot;status&quot;: &quot;hard_fail&quot;,
+    &quot;cpu_usage_us&quot;: 0,
+    &quot;net_usage_words&quot;: 0,
+    &quot;elapsed&quot;: &quot;62&quot;,
+    &quot;net_usage&quot;: &quot;124&quot;,
+    &quot;scheduled&quot;: false,
+    &quot;action_traces&quot;: [
+        {
+            &quot;action_ordinal&quot;: 1,
+            &quot;creator_action_ordinal&quot;: 0,
+            &quot;receipt&quot;: null,
+            &quot;receiver&quot;: &quot;example&quot;,
+            &quot;act&quot;: {
+                &quot;account&quot;: &quot;example&quot;,
+                &quot;name&quot;: &quot;buydog&quot;,
+                &quot;authorization&quot;: [
+                    {
+                        &quot;actor&quot;: &quot;alice&quot;,
+                        &quot;permission&quot;: &quot;active&quot;
+                    }
+                ],
+                &quot;data&quot;: [...]
+            },
+            &quot;context_free&quot;: false,
+            &quot;elapsed&quot;: &quot;34&quot;,
+            &quot;console&quot;: &quot;&quot;,
+            &quot;account_ram_deltas&quot;: [],
+            &quot;account_disk_deltas&quot;: [],
+            &quot;except&quot;: &quot;eosio_assert_message assertion failure (3050003)\nassertion failure with message: This contract does not deal with this token\npending console output: \n&quot;,
+            &quot;error_code&quot;: &quot;10000000000000000000&quot;,
+            &quot;return_value&quot;: []
+        }
+    ],
+    &quot;account_ram_delta&quot;: null,
+    &quot;except&quot;: &quot;eosio_assert_message assertion failure (3050003)\nassertion failure with message: This contract does not deal with this token\npending console output: \n&quot;,
+    &quot;error_code&quot;: &quot;10000000000000000000&quot;,
+    &quot;failed_dtrx_trace&quot;: []
+}
+</code></pre>
+<h2 id="expect"><a class="header" href="#expect">expect</a></h2>
+<p><code>expect</code> verifies that a transaction trace's <code>except</code> field contains within it an expected error message. If the the transaction succeeded, or the transaction failed but with a different message, then <code>expect</code> aborts the test with an error message. <code>expect</code> does a substring match.</p>
+<pre><code>expect(chain.as(&quot;alice&quot;_n).trace&lt;example::actions::buydog&gt;(
+            &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;100.0000 OTHER&quot;)),
+         &quot;This contract does not deal with this token&quot;);
+</code></pre>
+<h2 id="with_code"><a class="header" href="#with_code">with_code</a></h2>
+<p>The action wrappers provide a default account name that the contract is normally installed on. e.g. the token wrappers assume <code>eosio.token</code>. <code>with_code</code> overrides this default.</p>
+<p>This example sets up a fake EOS token to try to fool our example code.</p>
+<pre><code class="language-c++">// The hacker.token account runs the token contract
+chain.create_code_account(&quot;hacker.token&quot;_n);
+chain.set_code(&quot;hacker.token&quot;_n, CLSDK_CONTRACTS_DIR &quot;token.wasm&quot;);
+chain.as(&quot;hacker.token&quot;_n)
+      .with_code(&quot;hacker.token&quot;_n)
+      .act&lt;token::actions::create&gt;(&quot;hacker.token&quot;_n, s2a(&quot;1000000.0000 EOS&quot;));
+chain.as(&quot;hacker.token&quot;_n)
+      .with_code(&quot;hacker.token&quot;_n)
+      .act&lt;token::actions::issue&gt;(&quot;hacker.token&quot;_n, s2a(&quot;1000000.0000 EOS&quot;), &quot;&quot;);
+
+// Give fake EOS to Alice
+chain.as(&quot;hacker.token&quot;_n)
+      .with_code(&quot;hacker.token&quot;_n)
+      .act&lt;token::actions::transfer&gt;(&quot;hacker.token&quot;_n, &quot;alice&quot;_n, s2a(&quot;10000.0000 EOS&quot;), &quot;&quot;);
+
+// Alice transfers fake EOS to the example contract
+chain.as(&quot;alice&quot;_n)
+      .with_code(&quot;hacker.token&quot;_n)
+      .act&lt;token::actions::transfer&gt;(
+         &quot;alice&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;&quot;);
+
+// The contract didn't credit her account with the fake EOS
+expect(chain.as(&quot;alice&quot;_n).trace&lt;example::actions::buydog&gt;(
+            &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;100.0000 EOS&quot;)),
+         &quot;user does not have a balance&quot;);
+</code></pre>
+<h2 id="as-variables"><a class="header" href="#as-variables">as() variables</a></h2>
+<p><code>as()</code> returns an object which can be stored in a variable to reduce repetition.</p>
+<pre><code class="language-c++">auto alice = chain.as(&quot;alice&quot;_n);
+alice.act&lt;token::actions::transfer&gt;(
+    &quot;alice&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;&quot;);
+alice.act&lt;example::actions::buydog&gt;(
+    &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;100.0000 EOS&quot;));
+alice.act&lt;example::actions::buydog&gt;(
+    &quot;alice&quot;_n, &quot;barf&quot;_n, s2a(&quot;110.0000 EOS&quot;));
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cltester-bios-and-chain-configuration"><a class="header" href="#cltester-bios-and-chain-configuration">cltester: BIOS and Chain Configuration</a></h1>
+<p>cltester comes with multiple bios contracts which support different sets of protocol features.</p>
+<table><thead><tr><th>Name</th><th>Required Features</th><th>Additional Actions</th></tr></thead><tbody>
+<tr><td><code>bios</code></td><td><code>PREACTIVATE_FEATURE</code></td><td></td></tr>
+<tr><td><code>bios2</code></td><td><code>PREACTIVATE_FEATURE</code>, <code>WTMSIG_BLOCK_SIGNATURES</code></td><td><code>setprods</code></td></tr>
+<tr><td><code>bios3</code></td><td><code>PREACTIVATE_FEATURE</code>, <code>WTMSIG_BLOCK_SIGNATURES</code>, <code>BLOCKCHAIN_PARAMETERS</code>, <code>ACTION_RETURN_VALUE</code>, <code>CONFIGURABLE_WASM_LIMITS2</code></td><td><code>setprods</code>, <code>wasmcfg</code>, enhanced <code>setparams</code></td></tr>
+</tbody></table>
+<p>cltester always activates <code>PREACTIVATE_FEATURE</code>; <code>bios</code> can be installed as soon as the chain is created. The other bioses need additional protocol features activated before they can be installed. The <code>activate</code> action in <code>bios</code> can activate these features. A helper method helps activate these in bulk.</p>
+<h2 id="activating-protocol-features"><a class="header" href="#activating-protocol-features">Activating Protocol Features</a></h2>
+<p>bios contract headers include a helper function (<code>activate</code>) which activates multiple protocol features.</p>
+<pre><code class="language-c++">#include &lt;bios/bios.hpp&gt;
+
+TEST_CASE(&quot;activate&quot;)
+{
+   test_chain chain;
+
+   // Load bios
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios.wasm&quot;);
+
+   bios::activate(chain, {
+      // Features available in 2.0
+      eosio::feature::only_link_to_existing_permission,
+      eosio::feature::forward_setcode,
+      eosio::feature::wtmsig_block_signatures,
+      eosio::feature::replace_deferred,
+      eosio::feature::no_duplicate_deferred_id,
+      eosio::feature::ram_restrictions,
+      eosio::feature::webauthn_key,
+      eosio::feature::disallow_empty_producer_schedule,
+      eosio::feature::only_bill_first_authorizer,
+      eosio::feature::restrict_action_to_self,
+      eosio::feature::fix_linkauth_restriction,
+      eosio::feature::get_sender,
+
+      // Features added in 3.0
+      eosio::feature::blockchain_parameters,
+      eosio::feature::action_return_value,
+      eosio::feature::get_code_hash,
+      eosio::feature::configurable_wasm_limits2,
+   });
+
+   // Load bios3
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios3.wasm&quot;);
+
+   // Use the chain...
+}
+</code></pre>
+<h2 id="setting-consensus-parameters-bios-bios2"><a class="header" href="#setting-consensus-parameters-bios-bios2">Setting Consensus Parameters (bios, bios2)</a></h2>
+<p>The <code>setparams</code> action sets consensus parameters which are available in nodeos 2.0 and earlier.</p>
+<pre><code class="language-c++">#include &lt;bios/bios.hpp&gt;
+
+TEST_CASE(&quot;setparams&quot;)
+{
+   test_chain chain;
+
+   // Load bios
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios.wasm&quot;);
+
+   // Allow deeper inline actions. Sets all other parameters to the default.
+   chain.as(&quot;eosio&quot;_n).act&lt;bios::actions::setparams&gt;(
+      blockchain_parameters{
+         .max_inline_action_depth = 10});
+
+   // Use the chain...
+}
+</code></pre>
+<p><code>eosio::blockchain_parameters</code> has the following definition:</p>
+<pre><code class="language-c++">struct blockchain_parameters
+{
+   constexpr static int percent_1 = 100;  // 1 percent
+
+   uint64_t max_block_net_usage = 1024 * 1024;
+   uint32_t target_block_net_usage_pct = 10 * percent_1;
+   uint32_t max_transaction_net_usage = max_block_net_usage / 2;
+   uint32_t base_per_transaction_net_usage = 12;
+   uint32_t net_usage_leeway = 500;
+   uint32_t context_free_discount_net_usage_num = 20;
+   uint32_t context_free_discount_net_usage_den = 100;
+   uint32_t max_block_cpu_usage = 200'000;
+   uint32_t target_block_cpu_usage_pct = 10 * percent_1;
+   uint32_t max_transaction_cpu_usage = 3 * max_block_cpu_usage / 4;
+   uint32_t min_transaction_cpu_usage = 100;
+   uint32_t max_transaction_lifetime = 60 * 60;
+   uint32_t deferred_trx_expiration_window = 10 * 60;
+   uint32_t max_transaction_delay = 45 * 24 * 3600;
+   uint32_t max_inline_action_size = 512 * 1024;
+   uint16_t max_inline_action_depth = 4;
+   uint16_t max_authority_depth = 6;
+};
+</code></pre>
+<h2 id="setting-consensus-parameters-bios3"><a class="header" href="#setting-consensus-parameters-bios3">Setting Consensus Parameters (bios3)</a></h2>
+<p>The <code>setparams</code> action in <code>bios3</code> adds an additional field: <code>max_action_return_value_size</code>.</p>
+<pre><code class="language-c++">#include &lt;bios/bios.hpp&gt;
+#include &lt;bios3/bios3.hpp&gt;
+
+TEST_CASE(&quot;setparams_bios3&quot;)
+{
+   test_chain chain;
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios.wasm&quot;);
+   bios::activate(chain, {
+      eosio::feature::wtmsig_block_signatures,
+      eosio::feature::blockchain_parameters,
+      eosio::feature::action_return_value,
+      eosio::feature::configurable_wasm_limits2,
+   });
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios3.wasm&quot;);
+
+   // Allow larger return sizes. Sets all other parameters to the default.
+   chain.as(&quot;eosio&quot;_n).act&lt;bios3::actions::setparams&gt;(
+      bios3::blockchain_parameters_v1{
+         .max_action_return_value_size = 1024});
+
+   // Use the chain...
+}
+</code></pre>
+<h2 id="expanding-wasm-limits-bios3"><a class="header" href="#expanding-wasm-limits-bios3">Expanding WASM limits (bios3)</a></h2>
+<p>The <code>wasmcfg</code> action in <code>bios3</code> expands the WASM limits.</p>
+<pre><code class="language-c++">#include &lt;bios/bios.hpp&gt;
+#include &lt;bios3/bios3.hpp&gt;
+
+TEST_CASE(&quot;wasmcfg&quot;)
+{
+   test_chain chain;
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios.wasm&quot;);
+   bios::activate(chain, {
+      eosio::feature::wtmsig_block_signatures,
+      eosio::feature::blockchain_parameters,
+      eosio::feature::action_return_value,
+      eosio::feature::configurable_wasm_limits2,
+   });
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios3.wasm&quot;);
+
+   // low, default (same as low), or high
+   chain.as(&quot;eosio&quot;_n).act&lt;bios3::actions::wasmcfg&gt;(&quot;high&quot;_n);
+
+   // Use the chain...
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cltester-block-control"><a class="header" href="#cltester-block-control">cltester: Block Control</a></h1>
+<p>The <code>test_chain</code> class gives you control over block production, including control over time.</p>
+<h2 id="start_block"><a class="header" href="#start_block">start_block</a></h2>
+<p>At any point, you can start producing a new block:</p>
+<pre><code>chain.start_block();
+</code></pre>
+<p>This finishes producing the current block (if one is being produced), then starts producing a new one. All transactions after this point go into the new block.</p>
+<p>You can skip time:</p>
+<pre><code>chain.start_block(2000); // skip 2000ms-worth of blocks
+</code></pre>
+<ul>
+<li>0 skips nothing; the new block is 500ms after the current block being produced (if any), or 500ms after the previous block.</li>
+<li>500 skips 1 block</li>
+<li>1000 skips 2 blocks</li>
+</ul>
+<p>You can also skip to a specific time:</p>
+<pre><code>chain.start_block(&quot;2020-07-03T15:29:59.500&quot;);
+</code></pre>
+<p>or</p>
+<pre><code>eosio::time_point t = ...;
+chain.start_block(t);
+</code></pre>
+<p>Note when skipping time: <code>start_block</code> creates an empty block immediately before the new one. This allows TAPoS to operate correctly after skipping large periods of time.</p>
+<h2 id="finish_block"><a class="header" href="#finish_block">finish_block</a></h2>
+<p>At any point, you can stop producing the current block:</p>
+<pre><code>chain.finish_block();
+</code></pre>
+<p>After you call finish_block, the system is in a state where no blocks are being produced. The following cause the system to start producing a new block:</p>
+<ul>
+<li>using start_block</li>
+<li>pushing a transaction</li>
+<li>using finish_block again. This causes the system to start a new block then finish it.</li>
+</ul>
+<h2 id="getting-the-head-block-time"><a class="header" href="#getting-the-head-block-time">Getting the head block time</a></h2>
+<p>This gets the head block time as a <code>time_point</code>:</p>
+<pre><code>auto t = chain.get_head_block_info().timestamp.to_time_point();
+</code></pre>
+<p>Note: the head block is not the block that's currently being produced. Instead, it's the last block which was finished.</p>
+<p>You can display the time:</p>
+<pre><code>std::cout &lt;&lt; convert_to_json(t) &lt;&lt; &quot;\n&quot;;
+</code></pre>
+<p>You can also do arithmetic on time:</p>
+<pre><code>chain.start_block(
+   chain.get_head_block_info().timestamp.to_time_point() +
+   eosio::days(8) + eosio::hours(1));
+</code></pre>
+<h2 id="fixing-duplicate-transactions"><a class="header" href="#fixing-duplicate-transactions">Fixing duplicate transactions</a></h2>
+<p>It's easy to create a test which tries to push duplicate transactions. Call <code>start_block</code> before the duplicate transaction to solve this.</p>
+<h2 id="fixing-full-blocks"><a class="header" href="#fixing-full-blocks">Fixing full blocks</a></h2>
+<p>It's easy to overfill a block, causing a test failure. Use <code>start_block</code> to solve this.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cltester-starting-nodeos"><a class="header" href="#cltester-starting-nodeos">cltester: Starting Nodeos</a></h1>
+<p>cltester uses chainlib from nodeos, but cltester isn't nodeos, so is missing some functionality. e.g. it can't connect to nodes using p2p, and it can't serve json rpc requests. It can, however, spawn nodeos on a chain which cltester created. This can help with system-wide testing, e.g. testing nodejs and web apps.</p>
+<pre><code class="language-c++">TEST_CASE(&quot;start nodeos&quot;)
+{
+   // Prepare a chain
+   test_chain chain;
+   setup(chain);
+
+   // cltester doesn't need ABIs, but most other tools do
+   chain.set_abi(&quot;eosio.token&quot;_n, CLSDK_CONTRACTS_DIR &quot;token.abi&quot;);
+   chain.set_abi(&quot;example&quot;_n, &quot;testable.abi&quot;);
+
+   // Alice buys some dogs
+   chain.as(&quot;alice&quot;_n).act&lt;token::actions::transfer&gt;(
+       &quot;alice&quot;_n, &quot;example&quot;_n, s2a(&quot;300.0000 EOS&quot;), &quot;&quot;);
+   chain.as(&quot;alice&quot;_n).act&lt;example::actions::buydog&gt;(
+       &quot;alice&quot;_n, &quot;fido&quot;_n, s2a(&quot;100.0000 EOS&quot;));
+   chain.as(&quot;alice&quot;_n).act&lt;example::actions::buydog&gt;(
+       &quot;alice&quot;_n, &quot;barf&quot;_n, s2a(&quot;110.0000 EOS&quot;));
+
+   // Make the above irreversible. This causes the transactions to
+   // go into the block log.
+   chain.finish_block();
+   chain.finish_block();
+
+   // Copy blocks.log into a fresh directory for nodeos to use
+   eosio::execute(&quot;rm -rf example_chain&quot;);
+   eosio::execute(&quot;mkdir -p example_chain/blocks&quot;);
+   eosio::execute(&quot;cp &quot; + chain.get_path() + &quot;/blocks/blocks.log example_chain/blocks&quot;);
+
+   // Run nodeos
+   eosio::execute(
+       &quot;nodeos -d example_chain &quot;
+       &quot;--config-dir example_config &quot;
+       &quot;--plugin eosio::chain_api_plugin &quot;
+       &quot;--access-control-allow-origin \&quot;*\&quot; &quot;
+       &quot;--access-control-allow-header \&quot;*\&quot; &quot;
+       &quot;--http-validate-host 0 &quot;
+       &quot;--http-server-address 0.0.0.0:8888 &quot;
+       &quot;--contracts-console &quot;
+       &quot;-e -p eosio&quot;);
+}
+</code></pre>
+<p>After running the above, cleos should now function:</p>
+<pre><code>cleos push action example buydog '[&quot;alice&quot;, &quot;spot&quot;, &quot;90.0000 EOS&quot;]' -p alice
+cleos get table example example balance
+cleos get table example example animal
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="system-contract"><a class="header" href="#system-contract">System Contract</a></h1>
+<p>This example shows how to load and activate the <code>eosio.system</code> contract on a test chain. This is a simplified setup which isn't suitable for public chains. All accounts use the default public key. This doesn't activate optional features (REX, powerup, etc.). It spawns nodeos on the activated chain with 21 producers.</p>
+<pre><code class="language-c++">#include &lt;eosio/tester.hpp&gt;
+
+#include &lt;bios/bios.hpp&gt;
+#include &lt;token/token.hpp&gt;
+
+#define CATCH_CONFIG_MAIN
+#include &lt;catch2/catch.hpp&gt;
+
+using namespace eosio;
+
+// Where eosio.system.wasm and eosio.system.abi live
+const std::string system_path = &quot;/path/to/built/eosio.system&quot;;
+
+const std::vector system_accounts = {
+    &quot;eosio.bpay&quot;_n, &quot;eosio.names&quot;_n,  &quot;eosio.ram&quot;_n,   &quot;eosio.ramfee&quot;_n,
+    &quot;eosio.rex&quot;_n,  &quot;eosio.saving&quot;_n, &quot;eosio.stake&quot;_n, &quot;eosio.vpay&quot;_n,
+};
+
+const std::vector producers = {
+    &quot;bpaaaaaaaaaa&quot;_n, &quot;bpbbbbbbbbbb&quot;_n, &quot;bpcccccccccc&quot;_n, &quot;bpdddddddddd&quot;_n, &quot;bpeeeeeeeeee&quot;_n,
+    &quot;bpffffffffff&quot;_n, &quot;bpgggggggggg&quot;_n, &quot;bphhhhhhhhhh&quot;_n, &quot;bpiiiiiiiiii&quot;_n, &quot;bpjjjjjjjjjj&quot;_n,
+    &quot;bpkkkkkkkkkk&quot;_n, &quot;bpllllllllll&quot;_n, &quot;bpmmmmmmmmmm&quot;_n, &quot;bpnnnnnnnnnn&quot;_n, &quot;bpoooooooooo&quot;_n,
+    &quot;bppppppppppp&quot;_n, &quot;bpqqqqqqqqqq&quot;_n, &quot;bprrrrrrrrrr&quot;_n, &quot;bpssssssssss&quot;_n, &quot;bptttttttttt&quot;_n,
+    &quot;bpuuuuuuuuuu&quot;_n,
+};
+
+TEST_CASE(&quot;Activate eosio.system&quot;)
+{
+   test_chain chain;
+
+   // Create accounts
+   for (auto account : system_accounts)
+      chain.create_account(account);
+   for (auto account : producers)
+      chain.create_account(account);
+   chain.create_account(&quot;whale&quot;_n);
+
+   // Load bios and activate features
+   chain.set_code(&quot;eosio&quot;_n, CLSDK_CONTRACTS_DIR &quot;bios.wasm&quot;);
+   bios::activate(chain, {
+      // Features available in 2.0
+      feature::only_link_to_existing_permission,
+      feature::forward_setcode,
+      feature::wtmsig_block_signatures,
+      feature::replace_deferred,
+      feature::no_duplicate_deferred_id,
+      feature::ram_restrictions,
+      feature::webauthn_key,
+      feature::disallow_empty_producer_schedule,
+      feature::only_bill_first_authorizer,
+      feature::restrict_action_to_self,
+      feature::fix_linkauth_restriction,
+      feature::get_sender,
+
+      // Features added in 3.0
+      feature::blockchain_parameters,
+      feature::action_return_value,
+      feature::get_code_hash,
+      feature::configurable_wasm_limits2,
+   });
+
+   // Create token
+   chain.create_code_account(&quot;eosio.token&quot;_n);
+   chain.set_code(&quot;eosio.token&quot;_n, CLSDK_CONTRACTS_DIR &quot;token.wasm&quot;);
+   chain.set_abi(&quot;eosio.token&quot;_n, CLSDK_CONTRACTS_DIR &quot;token.abi&quot;);
+   chain.as(&quot;eosio.token&quot;_n).act&lt;token::actions::create&gt;(&quot;eosio&quot;_n, s2a(&quot;1000000000.0000 EOS&quot;));
+   chain.as(&quot;eosio&quot;_n).act&lt;token::actions::issue&gt;(&quot;eosio&quot;_n, s2a(&quot;1000000000.0000 EOS&quot;), &quot;&quot;);
+
+   // Load and initialize system contract
+   chain.set_code(&quot;eosio&quot;_n, system_path + &quot;/eosio.system.wasm&quot;);
+   chain.set_abi(&quot;eosio&quot;_n, system_path + &quot;/eosio.system.abi&quot;);
+   chain.transact({action{{{&quot;eosio&quot;_n, &quot;active&quot;_n}},
+                          &quot;eosio&quot;_n,
+                          &quot;init&quot;_n,
+                          std::tuple{varuint32(0), symbol(&quot;EOS&quot;, 4)}}});
+
+   // Register producers
+   for (auto prod : producers)
+   {
+      chain.transact({action{{{prod, &quot;active&quot;_n}},
+                             &quot;eosio&quot;_n,
+                             &quot;regproducer&quot;_n,
+                             std::tuple{prod, chain.default_pub_key, std::string{}, 0}}});
+   }
+
+   // Whale activates system contract by voting
+   chain.as(&quot;eosio&quot;_n).act&lt;token::actions::transfer&gt;(&quot;eosio&quot;_n, &quot;whale&quot;_n,
+                                                     s2a(&quot;500000000.0000 EOS&quot;), &quot;&quot;);
+   chain.transact({action{{{&quot;whale&quot;_n, &quot;active&quot;_n}},
+                          &quot;eosio&quot;_n,
+                          &quot;buyrambytes&quot;_n,
+                          std::tuple{&quot;whale&quot;_n, &quot;whale&quot;_n, 10000}}});
+   chain.transact({action{{{&quot;whale&quot;_n, &quot;active&quot;_n}},
+                          &quot;eosio&quot;_n,
+                          &quot;delegatebw&quot;_n,
+                          std::tuple{&quot;whale&quot;_n, &quot;whale&quot;_n, s2a(&quot;75000000.0000 EOS&quot;),
+                                     s2a(&quot;75000000.0000 EOS&quot;), false}}});
+   chain.transact({action{{{&quot;whale&quot;_n, &quot;active&quot;_n}},
+                          &quot;eosio&quot;_n,
+                          &quot;voteproducer&quot;_n,
+                          std::tuple{&quot;whale&quot;_n, &quot;&quot;_n, producers}}});
+
+   // Run nodeos
+   chain.finish_block();
+   chain.finish_block();
+   eosio::execute(&quot;rm -rf example_chain&quot;);
+   eosio::execute(&quot;mkdir -p example_chain/blocks&quot;);
+   eosio::execute(&quot;cp &quot; + chain.get_path() + &quot;/blocks/blocks.log example_chain/blocks&quot;);
+   eosio::execute(
+       &quot;nodeos -d example_chain &quot;
+       &quot;--config-dir example_config &quot;
+       &quot;--plugin eosio::chain_api_plugin &quot;
+       &quot;--access-control-allow-origin \&quot;*\&quot; &quot;
+       &quot;--access-control-allow-header \&quot;*\&quot; &quot;
+       &quot;--http-validate-host 0 &quot;
+       &quot;--http-server-address 0.0.0.0:8888 &quot;
+       &quot;--contracts-console &quot;
+       &quot;-e -p eosio &quot;
+       &quot;-p bpaaaaaaaaaa -p bpbbbbbbbbbb -p bpcccccccccc -p bpdddddddddd -p bpeeeeeeeeee &quot;
+       &quot;-p bpffffffffff -p bpgggggggggg -p bphhhhhhhhhh -p bpiiiiiiiiii -p bpjjjjjjjjjj &quot;
+       &quot;-p bpkkkkkkkkkk -p bpllllllllll -p bpmmmmmmmmmm -p bpnnnnnnnnnn -p bpoooooooooo &quot;
+       &quot;-p bppppppppppp -p bpqqqqqqqqqq -p bprrrrrrrrrr -p bpssssssssss -p bptttttttttt &quot;
+       &quot;-p bpuuuuuuuuuu&quot;);
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cltester-hostile-takeover"><a class="header" href="#cltester-hostile-takeover">cltester: Hostile Takeover</a></h1>
+<p>cltester can fork the state of an existing chain. This example loads an EOS snapshot, replaces the eosio and producer keys, and launches a nodeos instance which acts as 21 producers.</p>
+<pre><code class="language-c++">TEST_CASE(&quot;Takeover&quot;)
+{
+   std::cout &lt;&lt; &quot;Loading snapshot...\n&quot;;
+
+   // This constructor loads a snapshot. The second argument is the max database size.
+   test_chain chain{&quot;/home/todd/work/snapshot-2021-11-21-22-eos-v4-0216739301.bin&quot;,
+                    uint64_t(20) * 1024 * 1024 * 1024};
+
+   // Replace production keys and eosio keys. These functions don't push any
+   // transactions. Instead, they directly modify the chain state in a way which
+   // violates consensus rules.
+   std::cout &lt;&lt; &quot;Replacing keys...\n&quot;;
+   chain.replace_producer_keys(test_chain::default_pub_key);
+   chain.replace_account_keys(&quot;eosio&quot;_n, &quot;owner&quot;_n, test_chain::default_pub_key);
+   chain.replace_account_keys(&quot;eosio&quot;_n, &quot;active&quot;_n, test_chain::default_pub_key);
+
+   // We replaced the production keys, but the system contract can switch
+   // them back. Let's fix that.
+   for (auto prod :
+        {&quot;atticlabeosb&quot;_n, &quot;aus1genereos&quot;_n, &quot;big.one&quot;_n,      &quot;binancestake&quot;_n, &quot;bitfinexeos1&quot;_n,
+         &quot;blockpooleos&quot;_n, &quot;eosasia11111&quot;_n, &quot;eoscannonchn&quot;_n, &quot;eoseouldotio&quot;_n, &quot;eosflytomars&quot;_n,
+         &quot;eoshuobipool&quot;_n, &quot;eosinfstones&quot;_n, &quot;eosiosg11111&quot;_n, &quot;eoslaomaocom&quot;_n, &quot;eosnationftw&quot;_n,
+         &quot;hashfineosio&quot;_n, &quot;newdex.bp&quot;_n,    &quot;okcapitalbp1&quot;_n, &quot;starteosiobp&quot;_n, &quot;whaleex.com&quot;_n,
+         &quot;zbeosbp11111&quot;_n})
+   {
+      std::cout &lt;&lt; &quot;    &quot; &lt;&lt; prod.to_string() &lt;&lt; &quot;\n&quot;;
+      chain.replace_account_keys(prod, &quot;owner&quot;_n, test_chain::default_pub_key);
+      chain.replace_account_keys(prod, &quot;active&quot;_n, test_chain::default_pub_key);
+      chain.transact({
+          action{{{&quot;eosio&quot;_n, &quot;owner&quot;_n}}, &quot;eosio.null&quot;_n, &quot;free.trx&quot;_n, std::tuple{}},
+          action{{{prod, &quot;owner&quot;_n}},
+                 &quot;eosio&quot;_n,
+                 &quot;regproducer&quot;_n,
+                 std::make_tuple(prod, test_chain::default_pub_key, std::string(&quot;url&quot;),
+                                 uint16_t(1234))},
+      });
+   }
+
+   // Make a donation. This works because eosio.rex delegates to eosio,
+   // and we replaced eosio's keys.
+   chain.transact({
+       action{{{&quot;eosio&quot;_n, &quot;owner&quot;_n}}, &quot;eosio.null&quot;_n, &quot;free.trx&quot;_n, std::tuple{}},
+       action{{{&quot;eosio.rex&quot;_n, &quot;owner&quot;_n}},
+              &quot;eosio.token&quot;_n,
+              &quot;transfer&quot;_n,
+              std::make_tuple(&quot;eosio.rex&quot;_n, &quot;genesis.eden&quot;_n, s2a(&quot;50000000.0000 EOS&quot;),
+                              std::string(&quot;donate&quot;))},
+   });
+
+   // Produce the block
+   chain.finish_block();
+
+   // shut down the chain so we can safely copy the database
+   std::cout &lt;&lt; &quot;Shutdown...\n&quot;;
+   chain.shutdown();
+
+   // Copy everything into a fresh directory for nodeos to use
+   std::cout &lt;&lt; &quot;Copy...\n&quot;;
+   eosio::execute(&quot;rm -rf forked_chain&quot;);
+   eosio::execute(&quot;cp -r &quot; + chain.get_path() + &quot; forked_chain&quot;);
+
+   // Run nodeos. We must use the build which is packaged with clsdk since we're
+   // loading the non-portable database.
+   std::cout &lt;&lt; &quot;Start nodeos...\n&quot;;
+   eosio::execute(
+       &quot;./clsdk/bin/nodeos &quot;
+       &quot;-d forked_chain &quot;
+       &quot;--config-dir example_config &quot;
+       &quot;--plugin eosio::chain_api_plugin &quot;
+       &quot;--access-control-allow-origin \&quot;*\&quot; &quot;
+       &quot;--access-control-allow-header \&quot;*\&quot; &quot;
+       &quot;--http-validate-host 0 &quot;
+       &quot;--http-server-address 0.0.0.0:8888 &quot;
+       &quot;--contracts-console &quot;
+       &quot;-e &quot;
+       &quot;-p atticlabeosb &quot;
+       &quot;-p aus1genereos &quot;
+       &quot;-p big.one &quot;
+       &quot;-p binancestake &quot;
+       &quot;-p bitfinexeos1 &quot;
+       &quot;-p blockpooleos &quot;
+       &quot;-p eosasia11111 &quot;
+       &quot;-p eoscannonchn &quot;
+       &quot;-p eoseouldotio &quot;
+       &quot;-p eosflytomars &quot;
+       &quot;-p eoshuobipool &quot;
+       &quot;-p eosinfstones &quot;
+       &quot;-p eosiosg11111 &quot;
+       &quot;-p eoslaomaocom &quot;
+       &quot;-p eosnationftw &quot;
+       &quot;-p hashfineosio &quot;
+       &quot;-p newdex.bp &quot;
+       &quot;-p okcapitalbp1 &quot;
+       &quot;-p starteosiobp &quot;
+       &quot;-p whaleex.com &quot;
+       &quot;-p zbeosbp11111 &quot;);
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>
