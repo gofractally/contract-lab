@@ -48,7 +48,7 @@ function(add_libs suffix)
         -lc-no-malloc${suffix}
         simple-malloc${suffix}
         eosio-contracts-wasi-polyfill${suffix}
-        ${WASI_SDK_PREFIX}/lib/clang/11.0.0/lib/wasi/libclang_rt.builtins-wasm32.a
+        ${WASI_SDK_PREFIX}/lib/clang/13.0.0/lib/wasi/libclang_rt.builtins-wasm32.a
     )
 
     # Contract with full malloc/free
@@ -59,7 +59,7 @@ function(add_libs suffix)
         -lc++abi
         -lc
         eosio-contracts-wasi-polyfill${suffix}
-        ${WASI_SDK_PREFIX}/lib/clang/11.0.0/lib/wasi/libclang_rt.builtins-wasm32.a
+        ${WASI_SDK_PREFIX}/lib/clang/13.0.0/lib/wasi/libclang_rt.builtins-wasm32.a
     )
 
     add_library(eosio-contract-abigen${suffix})
@@ -76,7 +76,7 @@ function(add_libs suffix)
         -lc++abi
         -lc
         eosio-contracts-wasi-polyfill${suffix}
-        ${WASI_SDK_PREFIX}/lib/clang/11.0.0/lib/wasi/libclang_rt.builtins-wasm32.a
+        ${WASI_SDK_PREFIX}/lib/clang/13.0.0/lib/wasi/libclang_rt.builtins-wasm32.a
         ${WASI_SDK_PREFIX}/share/wasi-sysroot/lib/wasm32-wasi/crt1.o
     )
     target_link_options(eosio-contract-abigen${suffix} PUBLIC
@@ -110,7 +110,7 @@ function(add_libs suffix)
         -lc++
         -lc++abi
         -lc
-        ${WASI_SDK_PREFIX}/lib/clang/11.0.0/lib/wasi/libclang_rt.builtins-wasm32.a
+        ${WASI_SDK_PREFIX}/lib/clang/13.0.0/lib/wasi/libclang_rt.builtins-wasm32.a
         ${WASI_SDK_PREFIX}/share/wasi-sysroot/lib/wasm32-wasi/crt1.o
     )
     target_include_directories(cltestlib${suffix} PUBLIC contracts/include tester/include)

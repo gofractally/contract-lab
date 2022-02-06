@@ -76,7 +76,7 @@ function(add_libs suffix)
         -lc-no-malloc${suffix}
         simple-malloc${suffix}
         -leosio-contracts-wasi-polyfill${suffix}
-        ${WASI_SDK_PREFIX}/lib/clang/11.0.0/lib/wasi/libclang_rt.builtins-wasm32.a
+        ${WASI_SDK_PREFIX}/lib/clang/13.0.0/lib/wasi/libclang_rt.builtins-wasm32.a
     )
 
     # Contract with full malloc/free
@@ -87,7 +87,7 @@ function(add_libs suffix)
         -lc++abi
         -lc
         -leosio-contracts-wasi-polyfill${suffix}
-        ${WASI_SDK_PREFIX}/lib/clang/11.0.0/lib/wasi/libclang_rt.builtins-wasm32.a
+        ${WASI_SDK_PREFIX}/lib/clang/13.0.0/lib/wasi/libclang_rt.builtins-wasm32.a
     )
 
     add_library(eosio-contract-abigen${suffix} INTERFACE)

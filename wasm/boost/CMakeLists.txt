@@ -1,6 +1,6 @@
-set(BOOST_URL https://github.com/eoscommunity/Eden/releases/download/deps/boost_1_75_0.tar.bz2)
-set(BOOST_ARCHIVE ${CMAKE_CURRENT_BINARY_DIR}/boost_1_75_0.tar.bz2)
-set(BOOST_EXTRACTED ${CMAKE_CURRENT_BINARY_DIR}/boost_1_75_0)
+set(BOOST_URL https://boostorg.jfrog.io/artifactory/main/release/1.78.0/source/boost_1_78_0.tar.gz)
+set(BOOST_ARCHIVE ${CMAKE_CURRENT_BINARY_DIR}/boost_1_78_0.tar.gz)
+set(BOOST_EXTRACTED ${CMAKE_CURRENT_BINARY_DIR}/boost_1_78_0)
 set(BOOST_BOOST ${CMAKE_CURRENT_BINARY_DIR}/boost)
 
 if(NOT EXISTS ${BOOST_ARCHIVE})
